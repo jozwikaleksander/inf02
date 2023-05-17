@@ -374,6 +374,7 @@ th {
   border-top: 1px solid #ffffff;
   padding: 0.25em 0.5em 0.25em 0.5em;
   border: 1px solid #ffffff;
+  color: var(--foreground-color);
   background-color: var(--blue-color);
 }
 td {
@@ -430,6 +431,7 @@ h2 {
 }
 a {
   color: var(--yellow-color);
+  text-decoration: none;
 }
 a:hover {
   color: var(--red-color);
