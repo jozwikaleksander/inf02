@@ -75,6 +75,8 @@ Rozmiar katalogu /var</a></li>
 <li><a href="#plik-etcpasswd" id="toc-plik-etcpasswd">1.10. Plik
 /etc/passwd</a></li>
 <li><a href="#id" id="toc-id">1.11. id</a></li>
+<li><a href="#podsumowanie" id="toc-podsumowanie">1.12.
+Podsumowanie</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -219,5 +221,73 @@ href="#id">id</a>.</p>
 </figure>
 <p>Wyświetla <strong>UID</strong> i <strong>GID</strong> określonego
 użytkownika.</p>
+<h2 id="podsumowanie">1.12. Podsumowanie</h2>
+<table>
+<colgroup>
+<col style="width: 61%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Informacja</th>
+<th>Polecenie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td> Karta graficzna</td>
+<td>lspci -v | more <a href="#lspci"></a></td>
+</tr>
+<tr class="even">
+<td> Karta sieciowa</td>
+<td>lspci -v | more <a href="#lspci"></a></td>
+</tr>
+<tr class="odd">
+<td> Nazwa i wersja system operacyjnego</td>
+<td>/etc/os-release <a href="#plik-etcos-release"></a></td>
+</tr>
+<tr class="even">
+<td> Wersja jądra</td>
+<td>uname -r <a href="#uname"></a></td>
+</tr>
+<tr class="odd">
+<td> Architektura</td>
+<td>uname -p <a href="#uname"></a></td>
+</tr>
+<tr class="even">
+<td> Pamięć RAM</td>
+<td>dmidecode -t memory <a href="#dmidecode"></a></td>
+</tr>
+<tr class="odd">
+<td> Płyta główna</td>
+<td>dmidecode -t baseboard <a href="#dmidecode"></a></td>
+</tr>
+<tr class="even">
+<td> Procesy i zasoby komputera</td>
+<td>top <a href="#top"></a></td>
+</tr>
+<tr class="odd">
+<td>猪 Rozmiar katalogu</td>
+<td>du <a href="#du"></a></td>
+</tr>
+<tr class="even">
+<td> Nazwa hosta</td>
+<td>hostname <a href="#hostname"></a></td>
+</tr>
+<tr class="odd">
+<td> Używana powłoka</td>
+<td>/etc/passwd <a href="#plik-etc-passwd"></a></td>
+</tr>
+<tr class="even">
+<td>פּ Ścieżka do katalogu domowego</td>
+<td>/etc/passwd <a href="#plik-etc-passwd"></a></td>
+</tr>
+<tr class="odd">
+<td> UID i GID użytkownika</td>
+<td>/etc/passwd <a href="#plik-etc-passwd"></a> lub id <a
+href="#id"></a></td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>
