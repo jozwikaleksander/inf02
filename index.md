@@ -1,10 +1,10 @@
-# 1.Diagnostyka systemu Linux
+# Diagnostyka systemu Linux
 
-## 1.1. lsblk
+## lsblk
 Podaje informacje na **temat  dysku twardego**. Aby wyświetlić konkretne
 informacje skorzystaj z **przełącznika -o** i podaj nazwy kolumn.
 
-### 1.1.1. Najważniejsze kolumny
+### Najważniejsze kolumny
 
 - **NAME** - nazwa urządzenia
 - **FSTYPE** - system plików
@@ -16,7 +16,7 @@ informacje skorzystaj z **przełącznika -o** i podaj nazwy kolumn.
 
 ![Polecenie lsblk](img/1.1.png)
 
-## 1.2. lscpu
+## lscpu
 Podaje informacje o **  procesorze**.
 
 **Niektóre z informacji które możemy znaleźć:**
@@ -31,22 +31,22 @@ Podaje informacje o **  procesorze**.
 
 ![Polecenie lscpu](img/1.2.png)
 
-## 1.3. lspci
+## lspci
 Wyświetla urządzenia PCI w tym ** kartę graficzną** i ** kartę sieciową**.
 
-### 1.3.1. Karta graficzna
+### Karta graficzna
 
 ![Polecenie lspci](img/1.3.png)
 
 **Użyta komenda:** lspci -v | more
 
-### 1.3.2. Karta sieciowa
+### Karta sieciowa
 
 ![Polecenie lspci](img/1.3.2.png)
 
 **Użyta komenda:** lspci -v | more
 
-## 1.4. Plik /etc/os-release
+## Plik /etc/os-release
 Podaje **nazwę** i **wersje systemu operacyjnego**.
 
 **Przykład**
@@ -55,31 +55,31 @@ Podaje **nazwę** i **wersje systemu operacyjnego**.
 
 Aby wyświetlić zawartość pliku korzystam z polecenia **cat**.
 
-## 1.5. uname
+## uname
 Podaje m.in. ** wersję jądra (przełącznik -r)** i ** architekturę (przełacznik -p)**.
 
-### 1.5.1. Wersja jądra
+### Wersja jądra
 
 ![uname -r](img/1.5.1.png)
 
-### 5.2. Architektura
+### Architektura
 
 ![uname -p](img/1.5.2.png)
 
-## 1.6. dmidecode
+## dmidecode
 Dostarcza informacji na temat m.in. **pamięci RAM, procesorze, płycie głównej**. Aby wybrać konkretne urządzenie skorzystaj z przełącznika **-t**.
 
-### 1.6.1. Pamięć RAM
+### Pamięć RAM
 ![dmidecode -t memory](img/1.6.1.png)
 
 **Użyta komenda:** dmidecode -t memory
 
-### 1.6.2. Płyta główna
+### Płyta główna
 ![dmidecode -t baseboard](img/1.6.2.png)
 
 **Użyta komenda:** dmidecode -t baseboard
 
-## 1.7. top
+## top
 Wyświetla **procesy** oraz **informacje o zasobach komputera**.
 
 **Przykład**
@@ -92,27 +92,27 @@ Wyświetla **procesy** oraz **informacje o zasobach komputera**.
 - ilość wolnej pamięci RAM
 - ilość używanej pamięci RAM
 
-## 1.8. du
+## du
 Wyświetla rozmiar katalogu. Aby wygodnie wyświetlić wyniki skorzystaj
 z przełączników **-h** i **-s**.
 
-### 1.8.1. Rozmiar katalogu /etc
+### Rozmiar katalogu /etc
 ![du -sh /etc](img/1.8.1.png)
 
 **Użyta komenda:** du -sh /etc
 
-### 1.8.2. Rozmiar katalogu /var
+### Rozmiar katalogu /var
 
 ![du -sh /var](img/1.8.2.png)
 
 **Użyta komenda:** du -sh /var
 
-## 1.9. hostname
+## hostname
 ![hostname](img/1.9.png)
 
 Wyświetla nazwę hosta.
 
-## 1.10. Plik /etc/passwd
+## Plik /etc/passwd
 Zawiera listę wszystkich użytkowników wraz z ich UID, GID, ścieżką do katalogu domowego i używaną powłoką.
 
 **Przykład:**
@@ -125,12 +125,12 @@ Zawiera listę wszystkich użytkowników wraz z ich UID, GID, ścieżką do kata
 
 Jeżeli nie pamiętasz, które jest które użyj polecenia [id](#id).
 
-## 1.11. id
+## id
 ![id admin](img/1.11.png)
 
 Wyświetla **UID** i **GID** określonego użytkownika.
 
-## 1.12. Podsumowanie
+## Podsumowanie
 
 | Informacja                            | Polecenie              |
 |---------------------------------------|------------------------|
