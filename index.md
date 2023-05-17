@@ -153,3 +153,54 @@ Wyświetla **UID** i **GID** określonego użytkownika.
 # Konfiguracja serwera tekstowego Open Suse 42.3
 
 ## Konfiguracja interfejsów
+
+### Dodanie bramy domyślnej
+![W oknie Network Settings przechodzimy do zakładki Routing i w sekcji Routing Table dodajemy trase.](img/Konfiguracja%20interfejsow/1.png)
+
+![Wpisujemy adres IP bramy domyślnej i nazwa urządzenia, czyli karty sieciowej](img/Konfiguracja%20interfejsow/2.png)
+
+![Po dodaniu trasy widzimy ją w tabeli](img/Konfiguracja%20interfejsow/3.png)
+
+### Zmiana nazwy serwera
+![W oknie Network Settings przechodzimy do Hostname/DNS i wpisujemy statyczną nazwę hosta](img/Konfiguracja%20interfejsow/4.png)
+
+### Wyłączenie interfejsu
+![Przejdź do edycji ustawień interfejsu, następnie do zakładki **General** i w sekcji **Device Activation** zmień opcję **Activate Device** na **Never**](img/Konfiguracja%20interfejsow/5.png)
+
+## Serwer HTTP
+
+- ** Nazwa usługi:** apache2
+- ** Nazwa pakietu:** yast2-http-server
+- **   Domyślny właściciel:** wwwrun
+- **  Grupa właściciela:** www
+- **ﴘ Domyślny numer portu**: 80 (TCP)
+- ** Katalog do plików konfiguracyjnych:** /etc/apache2
+- ** Domyślna ścieżka strony**: /srv/www
+- **  Link do dokumentacji: [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html)**
+
+## Serwer FTP
+
+- ** Nazwa usługi:** vsftpd
+- ** Nazwa pakietu:** vsftpd lub yast2-ftp-server
+- ** Plik konfiguracyjny:** /etc/vsftpd.conf
+- **ﴘ Domyślne numery portów**: 20 (przesył danych), 21 (polecenia) (TCP)
+- ** Domyślna ścieżka do udostępnionych plików**: /srv/ftp
+- **  Link do dokumentacji: [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-ftp.html)**
+
+## Serwer DNS
+
+- ** Nazwa usługi:** named
+- ** Nazwa pakietu:** yast2-dns-server
+- ** Plik konfiguracyjny:** /etc/named.conf
+- **ﴘ Domyślne numery portów**: 53 (UDP i TCP)
+- **  Link do dokumentacji: [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-dns.html#sec-dns-bind)**
+
+Przed nauką konfiguracji serwera DNS warto nauczyć się teorii, zestaw fiszek programu Anki: [kliknij tutaj](https://www.github.com/jozwikaleksander/inf02/flashcards/DNS.apkg).
+
+## Serwer DHCP
+
+- ** Nazwa usługi:** dhcpd
+- ** Nazwa pakietu:** yast2-dhcp-server
+- ** Plik konfiguracyjny:** /etc/dhcpd.conf
+- **ﴘ Domyślne numery portów**: 67 (serwer) i 68 (klient) - UDP
+- **  Link do dokumentacji: [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-dhcp.html)**

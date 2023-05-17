@@ -90,6 +90,33 @@ class="toc-section-number">1.11</span> id</a></li>
 <li><a href="#podsumowanie" id="toc-podsumowanie"><span
 class="toc-section-number">1.12</span> Podsumowanie</a></li>
 </ul></li>
+<li><a href="#konfiguracja-serwera-tekstowego-open-suse-42.3"
+id="toc-konfiguracja-serwera-tekstowego-open-suse-42.3"><span
+class="toc-section-number">2</span> Konfiguracja serwera tekstowego Open
+Suse 42.3</a>
+<ul>
+<li><a href="#konfiguracja-interfejsów"
+id="toc-konfiguracja-interfejsów"><span
+class="toc-section-number">2.1</span> Konfiguracja interfejsów</a>
+<ul>
+<li><a href="#dodanie-bramy-domyślnej"
+id="toc-dodanie-bramy-domyślnej"><span
+class="toc-section-number">2.1.1</span> Dodanie bramy domyślnej</a></li>
+<li><a href="#zmiana-nazwy-serwera" id="toc-zmiana-nazwy-serwera"><span
+class="toc-section-number">2.1.2</span> Zmiana nazwy serwera</a></li>
+<li><a href="#wyłączenie-interfejsu"
+id="toc-wyłączenie-interfejsu"><span
+class="toc-section-number">2.1.3</span> Wyłączenie interfejsu</a></li>
+</ul></li>
+<li><a href="#serwer-http" id="toc-serwer-http"><span
+class="toc-section-number">2.2</span> Serwer HTTP</a></li>
+<li><a href="#serwer-ftp" id="toc-serwer-ftp"><span
+class="toc-section-number">2.3</span> Serwer FTP</a></li>
+<li><a href="#serwer-dns" id="toc-serwer-dns"><span
+class="toc-section-number">2.4</span> Serwer DNS</a></li>
+<li><a href="#serwer-dhcp" id="toc-serwer-dhcp"><span
+class="toc-section-number">2.5</span> Serwer DHCP</a></li>
+</ul></li>
 </ul>
 </nav>
 <h1 data-number="1" id="diagnostyka-systemu-linux"><span
@@ -324,5 +351,105 @@ href="#id"></a></td>
 </tr>
 </tbody>
 </table>
+<h1 data-number="2"
+id="konfiguracja-serwera-tekstowego-open-suse-42.3"><span
+class="header-section-number">2</span> Konfiguracja serwera tekstowego
+Open Suse 42.3</h1>
+<h2 data-number="2.1" id="konfiguracja-interfejsów"><span
+class="header-section-number">2.1</span> Konfiguracja interfejsów</h2>
+<h3 data-number="2.1.1" id="dodanie-bramy-domyślnej"><span
+class="header-section-number">2.1.1</span> Dodanie bramy domyślnej</h3>
+<figure>
+<img src="img/Konfiguracja%20interfejsow/1.png"
+alt="W oknie Network Settings przechodzimy do zakładki Routing i w sekcji Routing Table dodajemy trase." />
+<figcaption aria-hidden="true">W oknie Network Settings przechodzimy do
+zakładki Routing i w sekcji Routing Table dodajemy trase.</figcaption>
+</figure>
+<figure>
+<img src="img/Konfiguracja%20interfejsow/2.png"
+alt="Wpisujemy adres IP bramy domyślnej i nazwa urządzenia, czyli karty sieciowej" />
+<figcaption aria-hidden="true">Wpisujemy adres IP bramy domyślnej i
+nazwa urządzenia, czyli karty sieciowej</figcaption>
+</figure>
+<figure>
+<img src="img/Konfiguracja%20interfejsow/3.png"
+alt="Po dodaniu trasy widzimy ją w tabeli" />
+<figcaption aria-hidden="true">Po dodaniu trasy widzimy ją w
+tabeli</figcaption>
+</figure>
+<h3 data-number="2.1.2" id="zmiana-nazwy-serwera"><span
+class="header-section-number">2.1.2</span> Zmiana nazwy serwera</h3>
+<figure>
+<img src="img/Konfiguracja%20interfejsow/4.png"
+alt="W oknie Network Settings przechodzimy do Hostname/DNS i wpisujemy statyczną nazwę hosta" />
+<figcaption aria-hidden="true">W oknie Network Settings przechodzimy do
+Hostname/DNS i wpisujemy statyczną nazwę hosta</figcaption>
+</figure>
+<h3 data-number="2.1.3" id="wyłączenie-interfejsu"><span
+class="header-section-number">2.1.3</span> Wyłączenie interfejsu</h3>
+<figure>
+<img src="img/Konfiguracja%20interfejsow/5.png"
+alt="Przejdź do edycji ustawień interfejsu, następnie do zakładki General i w sekcji Device Activation zmień opcję Activate Device na Never" />
+<figcaption aria-hidden="true">Przejdź do edycji ustawień interfejsu,
+następnie do zakładki <strong>General</strong> i w sekcji <strong>Device
+Activation</strong> zmień opcję <strong>Activate Device</strong> na
+<strong>Never</strong></figcaption>
+</figure>
+<h2 data-number="2.2" id="serwer-http"><span
+class="header-section-number">2.2</span> Serwer HTTP</h2>
+<ul>
+<li><strong> Nazwa usługi:</strong> apache2</li>
+<li><strong> Nazwa pakietu:</strong> yast2-http-server</li>
+<li><strong> Domyślny właściciel:</strong> wwwrun</li>
+<li><strong> Grupa właściciela:</strong> www</li>
+<li><strong>ﴘ Domyślny numer portu</strong>: 80 (TCP)</li>
+<li><strong> Katalog do plików konfiguracyjnych:</strong>
+/etc/apache2</li>
+<li><strong> Domyślna ścieżka strony</strong>: /srv/www</li>
+<li><strong> Link do dokumentacji: <a
+href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html">kliknij
+tutaj</a></strong></li>
+</ul>
+<h2 data-number="2.3" id="serwer-ftp"><span
+class="header-section-number">2.3</span> Serwer FTP</h2>
+<ul>
+<li><strong> Nazwa usługi:</strong> vsftpd</li>
+<li><strong> Nazwa pakietu:</strong> vsftpd lub yast2-ftp-server</li>
+<li><strong> Plik konfiguracyjny:</strong> /etc/vsftpd.conf</li>
+<li><strong>ﴘ Domyślne numery portów</strong>: 20 (przesył danych), 21
+(polecenia) (TCP)</li>
+<li><strong> Domyślna ścieżka do udostępnionych plików</strong>:
+/srv/ftp</li>
+<li><strong> Link do dokumentacji: <a
+href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-ftp.html">kliknij
+tutaj</a></strong></li>
+</ul>
+<h2 data-number="2.4" id="serwer-dns"><span
+class="header-section-number">2.4</span> Serwer DNS</h2>
+<ul>
+<li><strong> Nazwa usługi:</strong> named</li>
+<li><strong> Nazwa pakietu:</strong> yast2-dns-server</li>
+<li><strong> Plik konfiguracyjny:</strong> /etc/named.conf</li>
+<li><strong>ﴘ Domyślne numery portów</strong>: 53 (UDP i TCP)</li>
+<li><strong> Link do dokumentacji: <a
+href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-dns.html#sec-dns-bind">kliknij
+tutaj</a></strong></li>
+</ul>
+<p>Przed nauką konfiguracji serwera DNS warto nauczyć się teorii, zestaw
+fiszek programu Anki: <a
+href="https://www.github.com/jozwikaleksander/inf02/flashcards/DNS.apkg">kliknij
+tutaj</a>.</p>
+<h2 data-number="2.5" id="serwer-dhcp"><span
+class="header-section-number">2.5</span> Serwer DHCP</h2>
+<ul>
+<li><strong> Nazwa usługi:</strong> dhcpd</li>
+<li><strong> Nazwa pakietu:</strong> yast2-dhcp-server</li>
+<li><strong> Plik konfiguracyjny:</strong> /etc/dhcpd.conf</li>
+<li><strong>ﴘ Domyślne numery portów</strong>: 67 (serwer) i 68 (klient)
+- UDP</li>
+<li><strong> Link do dokumentacji: <a
+href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-dhcp.html">kliknij
+tutaj</a></strong></li>
+</ul>
 </body>
 </html>
