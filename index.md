@@ -1,4 +1,4 @@
-# 1.Testowanie systemu Linux
+# 1.Diagnostyka systemu Linux
 
 ## 1.1. lsblk
 Podaje informacje na **temat  dysku twardego**. Aby wyświetlić konkretne
@@ -37,11 +37,13 @@ Wyświetla urządzenia PCI w tym ** kartę graficzną** i ** kartę siecio
 ### 1.3.1. Karta graficzna
 
 ![Polecenie lspci](img/1.3.png)
+
 **Użyta komenda:** lspci -v | more
 
 ### 1.3.2. Karta sieciowa
 
 ![Polecenie lspci](img/1.3.2.png)
+
 **Użyta komenda:** lspci -v | more
 
 ## 1.4. Plik /etc/os-release
