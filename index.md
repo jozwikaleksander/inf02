@@ -189,6 +189,8 @@ Wyświetla **UID** i **GID** określonego użytkownika.
 
 ## Serwer DNS
 
+### Informacje o usłudze
+
 - ** Nazwa usługi:** named
 - ** Nazwa pakietu:** yast2-dns-server
 - ** Plik konfiguracyjny:** /etc/named.conf
@@ -197,10 +199,58 @@ Wyświetla **UID** i **GID** określonego użytkownika.
 
 Przed nauką konfiguracji serwera DNS warto nauczyć się teorii, zestaw fiszek programu Anki: [kliknij tutaj](https://www.github.com/jozwikaleksander/inf02/flashcards/DNS.apkg).
 
+**Dla przypomnienia:**
+
+- **strefa wyszukiwania w przód** - example.com -> 192.168.1.1
+- **strefa wyszukiwania w tył** - 192.168.1.1 -> example.com
+- **rekord A** to nazwa na IPv4 - example.com -> 192.168.1.1
+- **rekord NS** - identyfikuje serwer nazw
+- **rekord CNAME** - przechowuje alias, który pozwala na przypisaniu wielu rekordów do tego samego hosta.
+- Tworzenie nazwy strefy wyszukiwania w przód polega na odwróceniu adresu sieci i dodaniu in-addr.arpa na końcu. **Na przykład:**
+
+        Adres sieci: 10.0.0.0
+        Nazwa strefy: 0.0.10.in-addr.arpa
+
+- Do testowania użyj polecenia **nslookup** (na Linuxie i Windows'ie) lub **dig** (na Linux'ie).
+
+### Konfiguracja serwera
+
+![Przejdź do konfiguracji serwera DNS](img/Serwer%20DNS/1.png)
+
+![Podaj listę hostów do których przekazywane będą zapytania, w tym przypadku będzie to tylko lokalny serwer](img/Serwer%20DNS/2.png)
+
+![Tworzymy **nową strefę podstawową (Master)** wyszukiwania w przód](img/Serwer%20DNS/3.png)
+
+![Wybieramy **Edit**](img/Serwer%20DNS/4.png)
+
+![Dodajemy nowy **rekord NS**, który zawiera nazwę domeny z kropką na końcu](img/Serwer%20DNS/5.png)
+
+![Dodajemy nowy **rekord A** na całą domenę](img/Serwer%20DNS/6.png)
+
+![Dodajemy pozostałe rekordy](img/Serwer%20DNS/7.png)
+
+![Zmieniamy ustawienia uruchamiania serwera i przechodzimy do zaawansowanej konfiguracji](img/Serwer%20DNS/8.png)
+
+![Przechodzimy do zakładki **DNS Zones** i dodajemy nową strefę, tym razem wyszukiwania w tył](img/Serwer%20DNS/9.png)
+
+![W edytorze strefy zaznaczamy opcję **Automatically Generate Records From** i wybieramy strefę wyszukiwania w przód (w tym przypadku mamy tylko jedną, więc wybrała się od razu)](img/Serwer%20DNS/10.png)
+
+![Dodajemy rekord NS, w strefie wyszukiwania w tył tak samo jak w strefie wyszukiwania w przód](img/Serwer%20DNS/11.png)
+
+### Testowanie serwera
+
+![Sprawdzam strefę wyszukiwania w przód na serwerze](img/Serwer%20DNS/Testowanie/1.png)
+
+![Następnie sprawdzam strefę wyszukiwania w tył](img/Serwer%20DNS/Testowanie/2.png)
+
+![Sprawdzam działanie serwera na kliencie](img/Serwer%20DNS/Testowanie/3.png)
+
+![I na koniec wyszukiwanie w tył](img/Serwer%20DNS/Testowanie/4.png)
+
 ## Serwer DHCP
 
 - ** Nazwa usługi:** dhcpd
 - ** Nazwa pakietu:** yast2-dhcp-server
 - ** Plik konfiguracyjny:** /etc/dhcpd.conf
 - **ﴘ Domyślne numery portów**: 67 (serwer) i 68 (klient) - UDP
-- **  Link do dokumentacji: [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-dhcp.html)**
+- **  Link do dokumentacji:** [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-dhcp.html)
