@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&display=swap");
+@font-face {
+  font-family: Iosevka;
+  src: url("../fonts/iosevka.ttf");
+}
 
 /* Root */
 :root {
@@ -42,7 +45,7 @@
   --cyan-color: #94e2d5;
   --lightblue-color: #89dceb;
   --figcaption-color: #bac2de;
-  --font-family: "Iosevka Nerd Font", "Fira Code", monospace;
+  --font-family: "Iosevka", monospace;
   --scrollbar-track: var(--foreground-color);
   --scrollbar-thumb: var(--blue-color);
   --scrollbar-thumb-hover: var(--lightblue-color);
