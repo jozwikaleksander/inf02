@@ -2,6 +2,8 @@
 
 Zobacz [  podsumowanie](#podsumowanie).
 
+Oprócz poleceń warto rozumieć 📁 **strukturę systemu plików Linux'a**. Fiszki programu Anki dotyczące folderów znajdziesz tutaj: [kliknij tutaj](https://www.github.com/jozwikaleksander/inf02/flashcards/Linux%20File%20System%20Structure.apkg)
+
 ## lsblk
 Podaje informacje na **temat  dysku twardego**. Aby wyświetlić konkretne
 informacje skorzystaj z **przełącznika -o** i podaj nazwy kolumn.
@@ -199,6 +201,7 @@ Wyświetla **UID** i **GID** określonego użytkownika.
 
 Przed nauką konfiguracji serwera DNS warto nauczyć się teorii, zestaw fiszek programu Anki: [kliknij tutaj](https://www.github.com/jozwikaleksander/inf02/flashcards/DNS.apkg).
 
+<article>
 **Dla przypomnienia:**
 
 - **strefa wyszukiwania w przód** - example.com -> 192.168.1.1
@@ -212,6 +215,7 @@ Przed nauką konfiguracji serwera DNS warto nauczyć się teorii, zestaw fiszek 
         Nazwa strefy: 0.0.10.in-addr.arpa
 
 - Do testowania użyj polecenia **nslookup** (na Linuxie i Windows'ie) lub **dig** (na Linux'ie).
+</article>
 
 ### Konfiguracja serwera
 
