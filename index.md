@@ -1,10 +1,11 @@
 # Diagnostyka systemu Linux
 
-Zobacz [  podsumowanie](#podsumowanie).
+Zobacz [ podsumowanie](#podsumowanie).
 
 Oprócz poleceń warto rozumieć 📁 **strukturę systemu plików Linux'a**. Fiszki programu Anki dotyczące folderów znajdziesz tutaj: [kliknij tutaj](https://www.github.com/jozwikaleksander/inf02/flashcards/Linux%20File%20System%20Structure.apkg)
 
 ## lsblk
+
 Podaje informacje na **temat  dysku twardego**. Aby wyświetlić konkretne
 informacje skorzystaj z **przełącznika -o** i podaj nazwy kolumn.
 
@@ -21,7 +22,8 @@ informacje skorzystaj z **przełącznika -o** i podaj nazwy kolumn.
 ![Polecenie lsblk](img/1.1.png)
 
 ## lscpu
-Podaje informacje o **  procesorze**.
+
+Podaje informacje o ** procesorze**.
 
 **Niektóre z informacji które możemy znaleźć:**
 
@@ -36,6 +38,7 @@ Podaje informacje o **  procesorze**.
 ![Polecenie lscpu](img/1.2.png)
 
 ## lspci
+
 Wyświetla urządzenia PCI w tym ** kartę graficzną** i ** kartę sieciową**.
 
 ### Karta graficzna
@@ -51,6 +54,7 @@ Wyświetla urządzenia PCI w tym ** kartę graficzną** i ** kartę siecio
 **Użyta komenda:** lspci -v | more
 
 ## Plik /etc/os-release
+
 Podaje **nazwę** i **wersje systemu operacyjnego**.
 
 **Przykład**
@@ -60,6 +64,7 @@ Podaje **nazwę** i **wersje systemu operacyjnego**.
 Aby wyświetlić zawartość pliku korzystam z polecenia **cat**.
 
 ## uname
+
 Podaje m.in. ** wersję jądra (przełącznik -r)** i ** architekturę (przełacznik -p)**.
 
 ### Wersja jądra
@@ -71,19 +76,23 @@ Podaje m.in. ** wersję jądra (przełącznik -r)** i ** architekturę (pr
 ![uname -p](img/1.5.2.png)
 
 ## dmidecode
+
 Dostarcza informacji na temat m.in. **pamięci RAM, procesorze, płycie głównej**. Aby wybrać konkretne urządzenie skorzystaj z przełącznika **-t**.
 
 ### Pamięć RAM
+
 ![dmidecode -t memory](img/1.6.1.png)
 
 **Użyta komenda:** dmidecode -t memory
 
 ### Płyta główna
+
 ![dmidecode -t baseboard](img/1.6.2.png)
 
 **Użyta komenda:** dmidecode -t baseboard
 
 ## top
+
 Wyświetla **procesy** oraz **informacje o zasobach komputera**.
 
 **Przykład**
@@ -97,10 +106,12 @@ Wyświetla **procesy** oraz **informacje o zasobach komputera**.
 - ilość używanej pamięci RAM
 
 ## du
+
 Wyświetla rozmiar katalogu. Aby wygodnie wyświetlić wyniki skorzystaj
 z przełączników **-h** i **-s**.
 
 ### Rozmiar katalogu /etc
+
 ![du -sh /etc](img/1.8.1.png)
 
 **Użyta komenda:** du -sh /etc
@@ -112,11 +123,13 @@ z przełączników **-h** i **-s**.
 **Użyta komenda:** du -sh /var
 
 ## hostname
+
 ![hostname](img/1.9.png)
 
 Wyświetla nazwę hosta.
 
 ## Plik /etc/passwd
+
 Zawiera listę wszystkich użytkowników wraz z ich UID, GID, ścieżką do katalogu domowego i używaną powłoką.
 
 **Przykład:**
@@ -130,33 +143,35 @@ Zawiera listę wszystkich użytkowników wraz z ich UID, GID, ścieżką do kata
 Jeżeli nie pamiętasz, które jest które użyj polecenia [id](#id).
 
 ## id
+
 ![id admin](img/1.11.png)
 
 Wyświetla **UID** i **GID** określonego użytkownika.
 
 ## Podsumowanie
 
-| Informacja                            | Polecenie                                             |
-|---------------------------------------|-------------------------------------------------------|
-|   Karta graficzna                    | lspci -v \| more  [](#lspci)                         |
-|   Karta sieciowa                     | lspci -v \| more  [](#lspci)                         |
-|   Nazwa i wersja system operacyjnego | /etc/os-release   [](#plik-etcos-release)            |
-|   Wersja jądra                       | uname -r          [](#uname)                         |
-|   Architektura                       | uname -p          [](#uname)                         |
-|   Pamięć RAM                         | dmidecode -t memory [](#dmidecode)                   |
-|   Płyta główna                       | dmidecode -t baseboard [](#dmidecode)                |
-|   Procesy i zasoby komputera         | top [](#top)                                         |
-| 猪  Rozmiar katalogu                   | du [](#du)                                           |
-|   Nazwa hosta                        | hostname [](#hostname)                               |
-|   Używana powłoka                    | /etc/passwd [](#plik-etc-passwd)                     |
-| פּ  Ścieżka do katalogu domowego       | /etc/passwd [](#plik-etc-passwd)                     |
-|   UID i GID użytkownika              | /etc/passwd [](#plik-etc-passwd) lub id [](#id)     |
+| Informacja                           | Polecenie                                         |
+| ------------------------------------ | ------------------------------------------------- |
+|  Karta graficzna                    | lspci -v \| more [](#lspci)                      |
+|  Karta sieciowa                     | lspci -v \| more [](#lspci)                      |
+|  Nazwa i wersja system operacyjnego | /etc/os-release [](#plik-etcos-release)          |
+|  Wersja jądra                       | uname -r [](#uname)                              |
+|  Architektura                       | uname -p [](#uname)                              |
+|  Pamięć RAM                         | dmidecode -t memory [](#dmidecode)               |
+|  Płyta główna                       | dmidecode -t baseboard [](#dmidecode)            |
+|  Procesy i zasoby komputera         | top [](#top)                                     |
+| 猪 Rozmiar katalogu                  | du [](#du)                                       |
+|  Nazwa hosta                        | hostname [](#hostname)                           |
+|  Używana powłoka                    | /etc/passwd [](#plik-etc-passwd)                 |
+| פּ Ścieżka do katalogu domowego       | /etc/passwd [](#plik-etc-passwd)                 |
+|  UID i GID użytkownika              | /etc/passwd [](#plik-etc-passwd) lub id [](#id) |
 
 # Konfiguracja serwera tekstowego Open Suse 42.3
 
 ## Konfiguracja interfejsów
 
 ### Dodanie bramy domyślnej
+
 ![W oknie Network Settings przechodzimy do zakładki Routing i w sekcji Routing Table dodajemy trase.](img/Konfiguracja%20interfejsow/1.png)
 
 ![Wpisujemy adres IP bramy domyślnej i nazwa urządzenia, czyli karty sieciowej](img/Konfiguracja%20interfejsow/2.png)
@@ -164,30 +179,83 @@ Wyświetla **UID** i **GID** określonego użytkownika.
 ![Po dodaniu trasy widzimy ją w tabeli](img/Konfiguracja%20interfejsow/3.png)
 
 ### Zmiana nazwy serwera
+
 ![W oknie Network Settings przechodzimy do Hostname/DNS i wpisujemy statyczną nazwę hosta](img/Konfiguracja%20interfejsow/4.png)
 
 ### Wyłączenie interfejsu
+
 ![Przejdź do edycji ustawień interfejsu, następnie do zakładki **General** i w sekcji **Device Activation** zmień opcję **Activate Device** na **Never**](img/Konfiguracja%20interfejsow/5.png)
 
 ## Serwer HTTP
 
 - ** Nazwa usługi:** apache2
 - ** Nazwa pakietu:** yast2-http-server
-- **   Domyślny właściciel:** wwwrun
-- **  Grupa właściciela:** www
+- ** Domyślny właściciel:** wwwrun
+- ** Grupa właściciela:** www
 - **ﴘ Domyślny numer portu**: 80 (TCP)
 - ** Katalog do plików konfiguracyjnych:** /etc/apache2
 - ** Domyślna ścieżka strony**: /srv/www
-- **  Link do dokumentacji: [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html)**
+- ** Link do dokumentacji: [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html)**
 
 ## Serwer FTP
+
+### Informacje o usłudze
 
 - ** Nazwa usługi:** vsftpd
 - ** Nazwa pakietu:** vsftpd lub yast2-ftp-server
 - ** Plik konfiguracyjny:** /etc/vsftpd.conf
 - **ﴘ Domyślne numery portów**: 20 (przesył danych), 21 (polecenia) (TCP)
 - ** Domyślna ścieżka do udostępnionych plików**: /srv/ftp
-- **  Link do dokumentacji: [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-ftp.html)**
+- ** Link do dokumentacji: [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-ftp.html)**
+
+### Przypomnienie
+
+#### Uwierzytelnieni i anonimowi
+
+** Użytkownik anonimowy** - każdy kto chce skorzystać z serwera nie mając przy tym swojego konta. Zazwyczaj można się połączyć anonimowo korzystając z login'u: **anonymous** lub wybierając odpowiednie ustawienie/przełącznik.
+
+** Użytkownik uwierzytelniony** - posiada własne konto w naszym serwerze.
+
+#### Umask
+![](img/FTP/umask.png)
+
+
+#### Łączenie się / testowanie serwera FTP
+**Program PuTTY** - umożliwia połączenie się z innym hostem (za pomocą protokołów telnet, ssh, ftp itp.). W przypadku FTP będziemy korzystać z narzędzia **psftp** (które wchodzi w skład PuTTY). Aby pobrać **PuTTY** [kliknij tutaj](https://putty.org/)
+
+**Sposoby na połączenie się z serwerem FTP:**
+  - Przeglądarka Internet Explorer
+  - Narzędzia ftp w wierszu poleceń
+  - Eksplorator plików
+  - Filezilla lub PuTTY
+
+</article>
+
+### Konfiguracja serwera
+
+![Przejdź do konfiguarcji serwera.](img/FTP/1.png)
+
+![W zakładce **Start-up** zmień ustawienia uruchamiania serwera.](img/FTP/2.png)
+
+![W zakładce **General** ustaw wiadomość powitalną, zmień uprawnienia [umask](#umas) dla użytkowników anonimowych i uwierzytelnionych oraz podaj ścieżkę do katalogów.](img/FTP/3.png)
+
+![W zależności od zadania zmień ustawienia kto może używać serwera i czy anonimowi mogą przesyłać. W tym przypadku nic nie zmieniam.](img/FTP/4.png)
+
+![Ustaw opcję **write_enable** na **true** w pliku /etc/vsftpd.conf (tę konkretną opcję znajdziesz na 19 linii)](img/FTP/4.1.png)
+
+![Zrestartuj serwer FTP.](img/FTP/4.2.png)
+
+![**Zmień właściciela** do katalogu serwera i jego plików (tym którego ścieżkę podaliśmy w poprzednim kroku), domyślnie będzie to **/srv/ftp**. Skorzystaj z przełącznika -R.](img/FTP/5.png)
+
+![Ustaw odpowiednie uprawnienia zarówno dla katalogu jaki plików wewnątrz. W tym celu skorzystaj z przełącznika -R.](img/FTP/5.1.png)
+
+![Sprawdź działanie serwera na kliencie za pomocą polecenia ftp](img/FTP/6.png)
+
+![To samo możesz zrobić w Eksploratorze Plików](img/FTP/7.png)
+
+![Lub w PuTTY - PSFTP](img/FTP/8.png)
+
+![Pamiętaj, żeby sprawdzić też połączenie jako [użytkownik anonimowy](#uwierzytelnieni-i-anonimowi)](img/FTP/9.png)
 
 ## Serwer DNS
 
@@ -197,7 +265,7 @@ Wyświetla **UID** i **GID** określonego użytkownika.
 - ** Nazwa pakietu:** yast2-dns-server
 - ** Plik konfiguracyjny:** /etc/named.conf
 - **ﴘ Domyślne numery portów**: 53 (UDP i TCP)
-- **  Link do dokumentacji: [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-dns.html#sec-dns-bind)**
+- ** Link do dokumentacji: [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-dns.html#sec-dns-bind)**
 
 Przed nauką konfiguracji serwera DNS warto nauczyć się teorii, zestaw fiszek programu Anki: [kliknij tutaj](https://www.github.com/jozwikaleksander/inf02/flashcards/DNS.apkg).
 
@@ -257,4 +325,4 @@ Przed nauką konfiguracji serwera DNS warto nauczyć się teorii, zestaw fiszek 
 - ** Nazwa pakietu:** yast2-dhcp-server
 - ** Plik konfiguracyjny:** /etc/dhcpd.conf
 - **ﴘ Domyślne numery portów**: 67 (serwer) i 68 (klient) - UDP
-- **  Link do dokumentacji:** [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-dhcp.html)
+- ** Link do dokumentacji:** [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-dhcp.html)

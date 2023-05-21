@@ -5,13 +5,11 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>INF02</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
   <link rel="stylesheet" href="css/style.css" />
   <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
@@ -22,34 +20,28 @@
 <header id="title-block-header">
 <h1 class="title">INF02</h1>
 </header>
-<nav id="TOC" role="doc-toc">
+<nav id="TOC">
 <ul>
-<li><a href="#diagnostyka-systemu-linux"><span class="toc-section-number">1</span> Diagnostyka systemu Linux</a>
-<ul>
-<li><a href="#lsblk"><span class="toc-section-number">1.1</span> lsblk</a>
-<ul>
+<li><a href="#diagnostyka-systemu-linux"><span class="toc-section-number">1</span> Diagnostyka systemu Linux</a><ul>
+<li><a href="#lsblk"><span class="toc-section-number">1.1</span> lsblk</a><ul>
 <li><a href="#najważniejsze-kolumny"><span class="toc-section-number">1.1.1</span> Najważniejsze kolumny</a></li>
 </ul></li>
 <li><a href="#lscpu"><span class="toc-section-number">1.2</span> lscpu</a></li>
-<li><a href="#lspci"><span class="toc-section-number">1.3</span> lspci</a>
-<ul>
+<li><a href="#lspci"><span class="toc-section-number">1.3</span> lspci</a><ul>
 <li><a href="#karta-graficzna"><span class="toc-section-number">1.3.1</span> Karta graficzna</a></li>
 <li><a href="#karta-sieciowa"><span class="toc-section-number">1.3.2</span> Karta sieciowa</a></li>
 </ul></li>
 <li><a href="#plik-etcos-release"><span class="toc-section-number">1.4</span> Plik /etc/os-release</a></li>
-<li><a href="#uname"><span class="toc-section-number">1.5</span> uname</a>
-<ul>
+<li><a href="#uname"><span class="toc-section-number">1.5</span> uname</a><ul>
 <li><a href="#wersja-jądra"><span class="toc-section-number">1.5.1</span> Wersja jądra</a></li>
 <li><a href="#architektura"><span class="toc-section-number">1.5.2</span> Architektura</a></li>
 </ul></li>
-<li><a href="#dmidecode"><span class="toc-section-number">1.6</span> dmidecode</a>
-<ul>
+<li><a href="#dmidecode"><span class="toc-section-number">1.6</span> dmidecode</a><ul>
 <li><a href="#pamięć-ram"><span class="toc-section-number">1.6.1</span> Pamięć RAM</a></li>
 <li><a href="#płyta-główna"><span class="toc-section-number">1.6.2</span> Płyta główna</a></li>
 </ul></li>
 <li><a href="#top"><span class="toc-section-number">1.7</span> top</a></li>
-<li><a href="#du"><span class="toc-section-number">1.8</span> du</a>
-<ul>
+<li><a href="#du"><span class="toc-section-number">1.8</span> du</a><ul>
 <li><a href="#rozmiar-katalogu-etc"><span class="toc-section-number">1.8.1</span> Rozmiar katalogu /etc</a></li>
 <li><a href="#rozmiar-katalogu-var"><span class="toc-section-number">1.8.2</span> Rozmiar katalogu /var</a></li>
 </ul></li>
@@ -58,32 +50,33 @@
 <li><a href="#id"><span class="toc-section-number">1.11</span> id</a></li>
 <li><a href="#podsumowanie"><span class="toc-section-number">1.12</span> Podsumowanie</a></li>
 </ul></li>
-<li><a href="#konfiguracja-serwera-tekstowego-open-suse-42.3"><span class="toc-section-number">2</span> Konfiguracja serwera tekstowego Open Suse 42.3</a>
-<ul>
-<li><a href="#konfiguracja-interfejsów"><span class="toc-section-number">2.1</span> Konfiguracja interfejsów</a>
-<ul>
+<li><a href="#konfiguracja-serwera-tekstowego-open-suse-42.3"><span class="toc-section-number">2</span> Konfiguracja serwera tekstowego Open Suse 42.3</a><ul>
+<li><a href="#konfiguracja-interfejsów"><span class="toc-section-number">2.1</span> Konfiguracja interfejsów</a><ul>
 <li><a href="#dodanie-bramy-domyślnej"><span class="toc-section-number">2.1.1</span> Dodanie bramy domyślnej</a></li>
 <li><a href="#zmiana-nazwy-serwera"><span class="toc-section-number">2.1.2</span> Zmiana nazwy serwera</a></li>
 <li><a href="#wyłączenie-interfejsu"><span class="toc-section-number">2.1.3</span> Wyłączenie interfejsu</a></li>
 </ul></li>
 <li><a href="#serwer-http"><span class="toc-section-number">2.2</span> Serwer HTTP</a></li>
-<li><a href="#serwer-ftp"><span class="toc-section-number">2.3</span> Serwer FTP</a></li>
-<li><a href="#serwer-dns"><span class="toc-section-number">2.4</span> Serwer DNS</a>
-<ul>
-<li><a href="#informacje-o-usłudze"><span class="toc-section-number">2.4.1</span> Informacje o usłudze</a></li>
-<li><a href="#konfiguracja-serwera"><span class="toc-section-number">2.4.2</span> Konfiguracja serwera</a></li>
+<li><a href="#serwer-ftp"><span class="toc-section-number">2.3</span> Serwer FTP</a><ul>
+<li><a href="#informacje-o-usłudze"><span class="toc-section-number">2.3.1</span> Informacje o usłudze</a></li>
+<li><a href="#przypomnienie"><span class="toc-section-number">2.3.2</span> Przypomnienie</a></li>
+<li><a href="#konfiguracja-serwera"><span class="toc-section-number">2.3.3</span> Konfiguracja serwera</a></li>
+</ul></li>
+<li><a href="#serwer-dns"><span class="toc-section-number">2.4</span> Serwer DNS</a><ul>
+<li><a href="#informacje-o-usłudze-1"><span class="toc-section-number">2.4.1</span> Informacje o usłudze</a></li>
+<li><a href="#konfiguracja-serwera-1"><span class="toc-section-number">2.4.2</span> Konfiguracja serwera</a></li>
 <li><a href="#testowanie-serwera"><span class="toc-section-number">2.4.3</span> Testowanie serwera</a></li>
 </ul></li>
 <li><a href="#serwer-dhcp"><span class="toc-section-number">2.5</span> Serwer DHCP</a></li>
 </ul></li>
 </ul>
 </nav>
-<h1 data-number="1" id="diagnostyka-systemu-linux"><span class="header-section-number">1</span> Diagnostyka systemu Linux</h1>
+<h1 id="diagnostyka-systemu-linux"><span class="header-section-number">1</span> Diagnostyka systemu Linux</h1>
 <p>Zobacz <a href="#podsumowanie"> podsumowanie</a>.</p>
-<p>Oprócz poleceń warto rozumieć 📁 <strong>strukturę systemu plików Linux’a</strong>. Fiszki programu Anki dotyczące folderów znajdziesz tutaj: <a href="https://www.github.com/jozwikaleksander/inf02/flashcards/Linux%20File%20System.apkg">kliknij tutaj</a></p>
-<h2 data-number="1.1" id="lsblk"><span class="header-section-number">1.1</span> lsblk</h2>
+<p>Oprócz poleceń warto rozumieć 📁 <strong>strukturę systemu plików Linux’a</strong>. Fiszki programu Anki dotyczące folderów znajdziesz tutaj: <a href="https://www.github.com/jozwikaleksander/inf02/flashcards/Linux%20File%20System%20Structure.apkg">kliknij tutaj</a></p>
+<h2 id="lsblk"><span class="header-section-number">1.1</span> lsblk</h2>
 <p>Podaje informacje na <strong>temat  dysku twardego</strong>. Aby wyświetlić konkretne informacje skorzystaj z <strong>przełącznika -o</strong> i podaj nazwy kolumn.</p>
-<h3 data-number="1.1.1" id="najważniejsze-kolumny"><span class="header-section-number">1.1.1</span> Najważniejsze kolumny</h3>
+<h3 id="najważniejsze-kolumny"><span class="header-section-number">1.1.1</span> Najważniejsze kolumny</h3>
 <ul>
 <li><strong>NAME</strong> - nazwa urządzenia</li>
 <li><strong>FSTYPE</strong> - system plików</li>
@@ -93,9 +86,9 @@
 </ul>
 <p><strong>Przykład</strong></p>
 <figure>
-<img src="img/1.1.png" alt="" /><figcaption>Polecenie lsblk</figcaption>
+<img src="img/1.1.png" alt="Polecenie lsblk" /><figcaption>Polecenie lsblk</figcaption>
 </figure>
-<h2 data-number="1.2" id="lscpu"><span class="header-section-number">1.2</span> lscpu</h2>
+<h2 id="lscpu"><span class="header-section-number">1.2</span> lscpu</h2>
 <p>Podaje informacje o <strong> procesorze</strong>.</p>
 <p><strong>Niektóre z informacji które możemy znaleźć:</strong></p>
 <ul>
@@ -107,50 +100,50 @@
 </ul>
 <p><strong>Przykład</strong></p>
 <figure>
-<img src="img/1.2.png" alt="" /><figcaption>Polecenie lscpu</figcaption>
+<img src="img/1.2.png" alt="Polecenie lscpu" /><figcaption>Polecenie lscpu</figcaption>
 </figure>
-<h2 data-number="1.3" id="lspci"><span class="header-section-number">1.3</span> lspci</h2>
+<h2 id="lspci"><span class="header-section-number">1.3</span> lspci</h2>
 <p>Wyświetla urządzenia PCI w tym <strong> kartę graficzną</strong> i <strong> kartę sieciową</strong>.</p>
-<h3 data-number="1.3.1" id="karta-graficzna"><span class="header-section-number">1.3.1</span> Karta graficzna</h3>
+<h3 id="karta-graficzna"><span class="header-section-number">1.3.1</span> Karta graficzna</h3>
 <figure>
-<img src="img/1.3.png" alt="" /><figcaption>Polecenie lspci</figcaption>
+<img src="img/1.3.png" alt="Polecenie lspci" /><figcaption>Polecenie lspci</figcaption>
 </figure>
 <p><strong>Użyta komenda:</strong> lspci -v | more</p>
-<h3 data-number="1.3.2" id="karta-sieciowa"><span class="header-section-number">1.3.2</span> Karta sieciowa</h3>
+<h3 id="karta-sieciowa"><span class="header-section-number">1.3.2</span> Karta sieciowa</h3>
 <figure>
-<img src="img/1.3.2.png" alt="" /><figcaption>Polecenie lspci</figcaption>
+<img src="img/1.3.2.png" alt="Polecenie lspci" /><figcaption>Polecenie lspci</figcaption>
 </figure>
 <p><strong>Użyta komenda:</strong> lspci -v | more</p>
-<h2 data-number="1.4" id="plik-etcos-release"><span class="header-section-number">1.4</span> Plik /etc/os-release</h2>
+<h2 id="plik-etcos-release"><span class="header-section-number">1.4</span> Plik /etc/os-release</h2>
 <p>Podaje <strong>nazwę</strong> i <strong>wersje systemu operacyjnego</strong>.</p>
 <p><strong>Przykład</strong></p>
 <figure>
-<img src="img/1.4.png" alt="" /><figcaption>Plik /etc/os-release</figcaption>
+<img src="img/1.4.png" alt="Plik /etc/os-release" /><figcaption>Plik /etc/os-release</figcaption>
 </figure>
 <p>Aby wyświetlić zawartość pliku korzystam z polecenia <strong>cat</strong>.</p>
-<h2 data-number="1.5" id="uname"><span class="header-section-number">1.5</span> uname</h2>
+<h2 id="uname"><span class="header-section-number">1.5</span> uname</h2>
 <p>Podaje m.in. <strong> wersję jądra (przełącznik -r)</strong> i <strong> architekturę (przełacznik -p)</strong>.</p>
-<h3 data-number="1.5.1" id="wersja-jądra"><span class="header-section-number">1.5.1</span> Wersja jądra</h3>
+<h3 id="wersja-jądra"><span class="header-section-number">1.5.1</span> Wersja jądra</h3>
 <figure>
-<img src="img/1.5.1.png" alt="" /><figcaption>uname -r</figcaption>
+<img src="img/1.5.1.png" alt="uname -r" /><figcaption>uname -r</figcaption>
 </figure>
-<h3 data-number="1.5.2" id="architektura"><span class="header-section-number">1.5.2</span> Architektura</h3>
+<h3 id="architektura"><span class="header-section-number">1.5.2</span> Architektura</h3>
 <figure>
-<img src="img/1.5.2.png" alt="" /><figcaption>uname -p</figcaption>
+<img src="img/1.5.2.png" alt="uname -p" /><figcaption>uname -p</figcaption>
 </figure>
-<h2 data-number="1.6" id="dmidecode"><span class="header-section-number">1.6</span> dmidecode</h2>
+<h2 id="dmidecode"><span class="header-section-number">1.6</span> dmidecode</h2>
 <p>Dostarcza informacji na temat m.in. <strong>pamięci RAM, procesorze, płycie głównej</strong>. Aby wybrać konkretne urządzenie skorzystaj z przełącznika <strong>-t</strong>.</p>
-<h3 data-number="1.6.1" id="pamięć-ram"><span class="header-section-number">1.6.1</span> Pamięć RAM</h3>
+<h3 id="pamięć-ram"><span class="header-section-number">1.6.1</span> Pamięć RAM</h3>
 <figure>
-<img src="img/1.6.1.png" alt="" /><figcaption>dmidecode -t memory</figcaption>
+<img src="img/1.6.1.png" alt="dmidecode -t memory" /><figcaption>dmidecode -t memory</figcaption>
 </figure>
 <p><strong>Użyta komenda:</strong> dmidecode -t memory</p>
-<h3 data-number="1.6.2" id="płyta-główna"><span class="header-section-number">1.6.2</span> Płyta główna</h3>
+<h3 id="płyta-główna"><span class="header-section-number">1.6.2</span> Płyta główna</h3>
 <figure>
-<img src="img/1.6.2.png" alt="" /><figcaption>dmidecode -t baseboard</figcaption>
+<img src="img/1.6.2.png" alt="dmidecode -t baseboard" /><figcaption>dmidecode -t baseboard</figcaption>
 </figure>
 <p><strong>Użyta komenda:</strong> dmidecode -t baseboard</p>
-<h2 data-number="1.7" id="top"><span class="header-section-number">1.7</span> top</h2>
+<h2 id="top"><span class="header-section-number">1.7</span> top</h2>
 <p>Wyświetla <strong>procesy</strong> oraz <strong>informacje o zasobach komputera</strong>.</p>
 <p><strong>Przykład</strong> <img src="img/1.7.1.png" alt="top" /></p>
 <p><strong>Informacje które możemy odczytać to między innymi:</strong></p>
@@ -160,38 +153,38 @@
 <li>ilość wolnej pamięci RAM</li>
 <li>ilość używanej pamięci RAM</li>
 </ul>
-<h2 data-number="1.8" id="du"><span class="header-section-number">1.8</span> du</h2>
+<h2 id="du"><span class="header-section-number">1.8</span> du</h2>
 <p>Wyświetla rozmiar katalogu. Aby wygodnie wyświetlić wyniki skorzystaj z przełączników <strong>-h</strong> i <strong>-s</strong>.</p>
-<h3 data-number="1.8.1" id="rozmiar-katalogu-etc"><span class="header-section-number">1.8.1</span> Rozmiar katalogu /etc</h3>
+<h3 id="rozmiar-katalogu-etc"><span class="header-section-number">1.8.1</span> Rozmiar katalogu /etc</h3>
 <figure>
-<img src="img/1.8.1.png" alt="" /><figcaption>du -sh /etc</figcaption>
+<img src="img/1.8.1.png" alt="du -sh /etc" /><figcaption>du -sh /etc</figcaption>
 </figure>
 <p><strong>Użyta komenda:</strong> du -sh /etc</p>
-<h3 data-number="1.8.2" id="rozmiar-katalogu-var"><span class="header-section-number">1.8.2</span> Rozmiar katalogu /var</h3>
+<h3 id="rozmiar-katalogu-var"><span class="header-section-number">1.8.2</span> Rozmiar katalogu /var</h3>
 <figure>
-<img src="img/1.8.2.png" alt="" /><figcaption>du -sh /var</figcaption>
+<img src="img/1.8.2.png" alt="du -sh /var" /><figcaption>du -sh /var</figcaption>
 </figure>
 <p><strong>Użyta komenda:</strong> du -sh /var</p>
-<h2 data-number="1.9" id="hostname"><span class="header-section-number">1.9</span> hostname</h2>
+<h2 id="hostname"><span class="header-section-number">1.9</span> hostname</h2>
 <figure>
-<img src="img/1.9.png" alt="" /><figcaption>hostname</figcaption>
+<img src="img/1.9.png" alt="hostname" /><figcaption>hostname</figcaption>
 </figure>
 <p>Wyświetla nazwę hosta.</p>
-<h2 data-number="1.10" id="plik-etcpasswd"><span class="header-section-number">1.10</span> Plik /etc/passwd</h2>
+<h2 id="plik-etcpasswd"><span class="header-section-number">1.10</span> Plik /etc/passwd</h2>
 <p>Zawiera listę wszystkich użytkowników wraz z ich UID, GID, ścieżką do katalogu domowego i używaną powłoką.</p>
 <p><strong>Przykład:</strong></p>
 <figure>
-<img src="img/1.10.1.png" alt="" /><figcaption>cat /etc/passwd</figcaption>
+<img src="img/1.10.1.png" alt="cat /etc/passwd" /><figcaption>cat /etc/passwd</figcaption>
 </figure>
 <p><strong><span style="color:var(--red-color)">1000 - UID</span></strong></p>
 <p><strong><span style="color:var(--green-color)">100 - GID</span></strong></p>
 <p>Jeżeli nie pamiętasz, które jest które użyj polecenia <a href="#id">id</a>.</p>
-<h2 data-number="1.11" id="id"><span class="header-section-number">1.11</span> id</h2>
+<h2 id="id"><span class="header-section-number">1.11</span> id</h2>
 <figure>
-<img src="img/1.11.png" alt="" /><figcaption>id admin</figcaption>
+<img src="img/1.11.png" alt="id admin" /><figcaption>id admin</figcaption>
 </figure>
 <p>Wyświetla <strong>UID</strong> i <strong>GID</strong> określonego użytkownika.</p>
-<h2 data-number="1.12" id="podsumowanie"><span class="header-section-number">1.12</span> Podsumowanie</h2>
+<h2 id="podsumowanie"><span class="header-section-number">1.12</span> Podsumowanie</h2>
 <table>
 <thead>
 <tr class="header">
@@ -254,27 +247,27 @@
 </tr>
 </tbody>
 </table>
-<h1 data-number="2" id="konfiguracja-serwera-tekstowego-open-suse-42.3"><span class="header-section-number">2</span> Konfiguracja serwera tekstowego Open Suse 42.3</h1>
-<h2 data-number="2.1" id="konfiguracja-interfejsów"><span class="header-section-number">2.1</span> Konfiguracja interfejsów</h2>
-<h3 data-number="2.1.1" id="dodanie-bramy-domyślnej"><span class="header-section-number">2.1.1</span> Dodanie bramy domyślnej</h3>
+<h1 id="konfiguracja-serwera-tekstowego-open-suse-42.3"><span class="header-section-number">2</span> Konfiguracja serwera tekstowego Open Suse 42.3</h1>
+<h2 id="konfiguracja-interfejsów"><span class="header-section-number">2.1</span> Konfiguracja interfejsów</h2>
+<h3 id="dodanie-bramy-domyślnej"><span class="header-section-number">2.1.1</span> Dodanie bramy domyślnej</h3>
 <figure>
-<img src="img/Konfiguracja%20interfejsow/1.png" alt="" /><figcaption>W oknie Network Settings przechodzimy do zakładki Routing i w sekcji Routing Table dodajemy trase.</figcaption>
+<img src="img/Konfiguracja%20interfejsow/1.png" alt="W oknie Network Settings przechodzimy do zakładki Routing i w sekcji Routing Table dodajemy trase." /><figcaption>W oknie Network Settings przechodzimy do zakładki Routing i w sekcji Routing Table dodajemy trase.</figcaption>
 </figure>
 <figure>
-<img src="img/Konfiguracja%20interfejsow/2.png" alt="" /><figcaption>Wpisujemy adres IP bramy domyślnej i nazwa urządzenia, czyli karty sieciowej</figcaption>
+<img src="img/Konfiguracja%20interfejsow/2.png" alt="Wpisujemy adres IP bramy domyślnej i nazwa urządzenia, czyli karty sieciowej" /><figcaption>Wpisujemy adres IP bramy domyślnej i nazwa urządzenia, czyli karty sieciowej</figcaption>
 </figure>
 <figure>
-<img src="img/Konfiguracja%20interfejsow/3.png" alt="" /><figcaption>Po dodaniu trasy widzimy ją w tabeli</figcaption>
+<img src="img/Konfiguracja%20interfejsow/3.png" alt="Po dodaniu trasy widzimy ją w tabeli" /><figcaption>Po dodaniu trasy widzimy ją w tabeli</figcaption>
 </figure>
-<h3 data-number="2.1.2" id="zmiana-nazwy-serwera"><span class="header-section-number">2.1.2</span> Zmiana nazwy serwera</h3>
+<h3 id="zmiana-nazwy-serwera"><span class="header-section-number">2.1.2</span> Zmiana nazwy serwera</h3>
 <figure>
-<img src="img/Konfiguracja%20interfejsow/4.png" alt="" /><figcaption>W oknie Network Settings przechodzimy do Hostname/DNS i wpisujemy statyczną nazwę hosta</figcaption>
+<img src="img/Konfiguracja%20interfejsow/4.png" alt="W oknie Network Settings przechodzimy do Hostname/DNS i wpisujemy statyczną nazwę hosta" /><figcaption>W oknie Network Settings przechodzimy do Hostname/DNS i wpisujemy statyczną nazwę hosta</figcaption>
 </figure>
-<h3 data-number="2.1.3" id="wyłączenie-interfejsu"><span class="header-section-number">2.1.3</span> Wyłączenie interfejsu</h3>
+<h3 id="wyłączenie-interfejsu"><span class="header-section-number">2.1.3</span> Wyłączenie interfejsu</h3>
 <figure>
-<img src="img/Konfiguracja%20interfejsow/5.png" alt="" /><figcaption>Przejdź do edycji ustawień interfejsu, następnie do zakładki <strong>General</strong> i w sekcji <strong>Device Activation</strong> zmień opcję <strong>Activate Device</strong> na <strong>Never</strong></figcaption>
+<img src="img/Konfiguracja%20interfejsow/5.png" alt="Przejdź do edycji ustawień interfejsu, następnie do zakładki General i w sekcji Device Activation zmień opcję Activate Device na Never" /><figcaption>Przejdź do edycji ustawień interfejsu, następnie do zakładki <strong>General</strong> i w sekcji <strong>Device Activation</strong> zmień opcję <strong>Activate Device</strong> na <strong>Never</strong></figcaption>
 </figure>
-<h2 data-number="2.2" id="serwer-http"><span class="header-section-number">2.2</span> Serwer HTTP</h2>
+<h2 id="serwer-http"><span class="header-section-number">2.2</span> Serwer HTTP</h2>
 <ul>
 <li><strong> Nazwa usługi:</strong> apache2</li>
 <li><strong> Nazwa pakietu:</strong> yast2-http-server</li>
@@ -285,7 +278,8 @@
 <li><strong> Domyślna ścieżka strony</strong>: /srv/www</li>
 <li><strong> Link do dokumentacji: <a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html">kliknij tutaj</a></strong></li>
 </ul>
-<h2 data-number="2.3" id="serwer-ftp"><span class="header-section-number">2.3</span> Serwer FTP</h2>
+<h2 id="serwer-ftp"><span class="header-section-number">2.3</span> Serwer FTP</h2>
+<h3 id="informacje-o-usłudze"><span class="header-section-number">2.3.1</span> Informacje o usłudze</h3>
 <ul>
 <li><strong> Nazwa usługi:</strong> vsftpd</li>
 <li><strong> Nazwa pakietu:</strong> vsftpd lub yast2-ftp-server</li>
@@ -294,8 +288,55 @@
 <li><strong> Domyślna ścieżka do udostępnionych plików</strong>: /srv/ftp</li>
 <li><strong> Link do dokumentacji: <a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-ftp.html">kliknij tutaj</a></strong></li>
 </ul>
-<h2 data-number="2.4" id="serwer-dns"><span class="header-section-number">2.4</span> Serwer DNS</h2>
-<h3 data-number="2.4.1" id="informacje-o-usłudze"><span class="header-section-number">2.4.1</span> Informacje o usłudze</h3>
+<h3 id="przypomnienie"><span class="header-section-number">2.3.2</span> Przypomnienie</h3>
+<h4 id="uwierzytelnieni-i-anonimowi"><span class="header-section-number">2.3.2.1</span> Uwierzytelnieni i anonimowi</h4>
+<p><strong> Użytkownik anonimowy</strong> - każdy kto chce skorzystać z serwera nie mając przy tym swojego konta. Zazwyczaj można się połączyć anonimowo korzystając z login’u: <strong>anonymous</strong> lub wybierając odpowiednie ustawienie/przełącznik.</p>
+<p><strong> Użytkownik uwierzytelniony</strong> - posiada własne konto w naszym serwerze.</p>
+<h4 id="umask"><span class="header-section-number">2.3.2.2</span> Umask</h4>
+<p><img src="img/FTP/umask.png" /></p>
+<h4 id="łączenie-się-testowanie-serwera-ftp"><span class="header-section-number">2.3.2.3</span> Łączenie się / testowanie serwera FTP</h4>
+<p><strong>Program PuTTY</strong> - umożliwia połączenie się z innym hostem (za pomocą protokołów telnet, ssh, ftp itp.). W przypadku FTP będziemy korzystać z narzędzia <strong>psftp</strong> (które wchodzi w skład PuTTY). Aby pobrać <strong>PuTTY</strong> <a href="https://putty.org/">kliknij tutaj</a></p>
+<p><strong>Sposoby na połączenie się z serwerem FTP:</strong> - Przeglądarka Internet Explorer - Narzędzia ftp w wierszu poleceń - Eksplorator plików - Filezilla lub PuTTY</p>
+</article>
+<h3 id="konfiguracja-serwera"><span class="header-section-number">2.3.3</span> Konfiguracja serwera</h3>
+<figure>
+<img src="img/FTP/1.png" alt="Przejdź do konfiguarcji serwera." /><figcaption>Przejdź do konfiguarcji serwera.</figcaption>
+</figure>
+<figure>
+<img src="img/FTP/2.png" alt="W zakładce Start-up zmień ustawienia uruchamiania serwera." /><figcaption>W zakładce <strong>Start-up</strong> zmień ustawienia uruchamiania serwera.</figcaption>
+</figure>
+<figure>
+<img src="img/FTP/3.png" alt="W zakładce General ustaw wiadomość powitalną, zmień uprawnienia umask dla użytkowników anonimowych i uwierzytelnionych oraz podaj ścieżkę do katalogów." /><figcaption>W zakładce <strong>General</strong> ustaw wiadomość powitalną, zmień uprawnienia <a href="#umas">umask</a> dla użytkowników anonimowych i uwierzytelnionych oraz podaj ścieżkę do katalogów.</figcaption>
+</figure>
+<figure>
+<img src="img/FTP/4.png" alt="W zależności od zadania zmień ustawienia kto może używać serwera i czy anonimowi mogą przesyłać. W tym przypadku nic nie zmieniam." /><figcaption>W zależności od zadania zmień ustawienia kto może używać serwera i czy anonimowi mogą przesyłać. W tym przypadku nic nie zmieniam.</figcaption>
+</figure>
+<figure>
+<img src="img/FTP/4.1.png" alt="Ustaw opcję write_enable na true w pliku /etc/vsftpd.conf (tę konkretną opcję znajdziesz na 19 linii)" /><figcaption>Ustaw opcję <strong>write_enable</strong> na <strong>true</strong> w pliku /etc/vsftpd.conf (tę konkretną opcję znajdziesz na 19 linii)</figcaption>
+</figure>
+<figure>
+<img src="img/FTP/4.2.png" alt="Zrestartuj serwer FTP." /><figcaption>Zrestartuj serwer FTP.</figcaption>
+</figure>
+<figure>
+<img src="img/FTP/5.png" alt="Zmień właściciela do katalogu serwera i jego plików (tym którego ścieżkę podaliśmy w poprzednim kroku), domyślnie będzie to /srv/ftp. Skorzystaj z przełącznika -R." /><figcaption><strong>Zmień właściciela</strong> do katalogu serwera i jego plików (tym którego ścieżkę podaliśmy w poprzednim kroku), domyślnie będzie to <strong>/srv/ftp</strong>. Skorzystaj z przełącznika -R.</figcaption>
+</figure>
+<figure>
+<img src="img/FTP/5.1.png" alt="Ustaw odpowiednie uprawnienia zarówno dla katalogu jaki plików wewnątrz. W tym celu skorzystaj z przełącznika -R." /><figcaption>Ustaw odpowiednie uprawnienia zarówno dla katalogu jaki plików wewnątrz. W tym celu skorzystaj z przełącznika -R.</figcaption>
+</figure>
+<figure>
+<img src="img/FTP/6.png" alt="Sprawdź działanie serwera na kliencie za pomocą polecenia ftp" /><figcaption>Sprawdź działanie serwera na kliencie za pomocą polecenia ftp</figcaption>
+</figure>
+<figure>
+<img src="img/FTP/7.png" alt="To samo możesz zrobić w Eksploratorze Plików" /><figcaption>To samo możesz zrobić w Eksploratorze Plików</figcaption>
+</figure>
+<figure>
+<img src="img/FTP/8.png" alt="Lub w PuTTY - PSFTP" /><figcaption>Lub w PuTTY - PSFTP</figcaption>
+</figure>
+<figure>
+<img src="img/FTP/9.png" alt="Pamiętaj, żeby sprawdzić też połączenie jako użytkownik anonimowy" /><figcaption>Pamiętaj, żeby sprawdzić też połączenie jako <a href="#uwierzytelnieni-i-anonimowi">użytkownik anonimowy</a></figcaption>
+</figure>
+<h2 id="serwer-dns"><span class="header-section-number">2.4</span> Serwer DNS</h2>
+<h3 id="informacje-o-usłudze-1"><span class="header-section-number">2.4.1</span> Informacje o usłudze</h3>
 <ul>
 <li><strong> Nazwa usługi:</strong> named</li>
 <li><strong> Nazwa pakietu:</strong> yast2-dns-server</li>
@@ -307,65 +348,65 @@
 <article>
 <p><strong>Dla przypomnienia:</strong></p>
 <ul>
-<li><p><strong>strefa wyszukiwania w przód</strong> - example.com -&gt; 192.168.1.1</p></li>
-<li><p><strong>strefa wyszukiwania w tył</strong> - 192.168.1.1 -&gt; example.com</p></li>
-<li><p><strong>rekord A</strong> to nazwa na IPv4 - example.com -&gt; 192.168.1.1</p></li>
-<li><p><strong>rekord NS</strong> - identyfikuje serwer nazw</p></li>
-<li><p><strong>rekord CNAME</strong> - przechowuje alias, który pozwala na przypisaniu wielu rekordów do tego samego hosta.</p></li>
+<li><strong>strefa wyszukiwania w przód</strong> - example.com -&gt; 192.168.1.1</li>
+<li><strong>strefa wyszukiwania w tył</strong> - 192.168.1.1 -&gt; example.com</li>
+<li><strong>rekord A</strong> to nazwa na IPv4 - example.com -&gt; 192.168.1.1</li>
+<li><strong>rekord NS</strong> - identyfikuje serwer nazw</li>
+<li><strong>rekord CNAME</strong> - przechowuje alias, który pozwala na przypisaniu wielu rekordów do tego samego hosta.</li>
 <li><p>Tworzenie nazwy strefy wyszukiwania w przód polega na odwróceniu adresu sieci i dodaniu in-addr.arpa na końcu. <strong>Na przykład:</strong></p>
 <pre><code>  Adres sieci: 10.0.0.0
   Nazwa strefy: 0.0.10.in-addr.arpa</code></pre></li>
-<li><p>Do testowania użyj polecenia <strong>nslookup</strong> (na Linuxie i Windows’ie) lub <strong>dig</strong> (na Linux’ie).</p></li>
+<li>Do testowania użyj polecenia <strong>nslookup</strong> (na Linuxie i Windows’ie) lub <strong>dig</strong> (na Linux’ie).</li>
 </ul>
 </article>
-<h3 data-number="2.4.2" id="konfiguracja-serwera"><span class="header-section-number">2.4.2</span> Konfiguracja serwera</h3>
+<h3 id="konfiguracja-serwera-1"><span class="header-section-number">2.4.2</span> Konfiguracja serwera</h3>
 <figure>
-<img src="img/Serwer%20DNS/1.png" alt="" /><figcaption>Przejdź do konfiguracji serwera DNS</figcaption>
+<img src="img/Serwer%20DNS/1.png" alt="Przejdź do konfiguracji serwera DNS" /><figcaption>Przejdź do konfiguracji serwera DNS</figcaption>
 </figure>
 <figure>
-<img src="img/Serwer%20DNS/2.png" alt="" /><figcaption>Podaj listę hostów do których przekazywane będą zapytania, w tym przypadku będzie to tylko lokalny serwer</figcaption>
+<img src="img/Serwer%20DNS/2.png" alt="Podaj listę hostów do których przekazywane będą zapytania, w tym przypadku będzie to tylko lokalny serwer" /><figcaption>Podaj listę hostów do których przekazywane będą zapytania, w tym przypadku będzie to tylko lokalny serwer</figcaption>
 </figure>
 <figure>
-<img src="img/Serwer%20DNS/3.png" alt="" /><figcaption>Tworzymy <strong>nową strefę podstawową (Master)</strong> wyszukiwania w przód</figcaption>
+<img src="img/Serwer%20DNS/3.png" alt="Tworzymy nową strefę podstawową (Master) wyszukiwania w przód" /><figcaption>Tworzymy <strong>nową strefę podstawową (Master)</strong> wyszukiwania w przód</figcaption>
 </figure>
 <figure>
-<img src="img/Serwer%20DNS/4.png" alt="" /><figcaption>Wybieramy <strong>Edit</strong></figcaption>
+<img src="img/Serwer%20DNS/4.png" alt="Wybieramy Edit" /><figcaption>Wybieramy <strong>Edit</strong></figcaption>
 </figure>
 <figure>
-<img src="img/Serwer%20DNS/5.png" alt="" /><figcaption>Dodajemy nowy <strong>rekord NS</strong>, który zawiera nazwę domeny z kropką na końcu</figcaption>
+<img src="img/Serwer%20DNS/5.png" alt="Dodajemy nowy rekord NS, który zawiera nazwę domeny z kropką na końcu" /><figcaption>Dodajemy nowy <strong>rekord NS</strong>, który zawiera nazwę domeny z kropką na końcu</figcaption>
 </figure>
 <figure>
-<img src="img/Serwer%20DNS/6.png" alt="" /><figcaption>Dodajemy nowy <strong>rekord A</strong> na całą domenę</figcaption>
+<img src="img/Serwer%20DNS/6.png" alt="Dodajemy nowy rekord A na całą domenę" /><figcaption>Dodajemy nowy <strong>rekord A</strong> na całą domenę</figcaption>
 </figure>
 <figure>
-<img src="img/Serwer%20DNS/7.png" alt="" /><figcaption>Dodajemy pozostałe rekordy</figcaption>
+<img src="img/Serwer%20DNS/7.png" alt="Dodajemy pozostałe rekordy" /><figcaption>Dodajemy pozostałe rekordy</figcaption>
 </figure>
 <figure>
-<img src="img/Serwer%20DNS/8.png" alt="" /><figcaption>Zmieniamy ustawienia uruchamiania serwera i przechodzimy do zaawansowanej konfiguracji</figcaption>
+<img src="img/Serwer%20DNS/8.png" alt="Zmieniamy ustawienia uruchamiania serwera i przechodzimy do zaawansowanej konfiguracji" /><figcaption>Zmieniamy ustawienia uruchamiania serwera i przechodzimy do zaawansowanej konfiguracji</figcaption>
 </figure>
 <figure>
-<img src="img/Serwer%20DNS/9.png" alt="" /><figcaption>Przechodzimy do zakładki <strong>DNS Zones</strong> i dodajemy nową strefę, tym razem wyszukiwania w tył</figcaption>
+<img src="img/Serwer%20DNS/9.png" alt="Przechodzimy do zakładki DNS Zones i dodajemy nową strefę, tym razem wyszukiwania w tył" /><figcaption>Przechodzimy do zakładki <strong>DNS Zones</strong> i dodajemy nową strefę, tym razem wyszukiwania w tył</figcaption>
 </figure>
 <figure>
-<img src="img/Serwer%20DNS/10.png" alt="" /><figcaption>W edytorze strefy zaznaczamy opcję <strong>Automatically Generate Records From</strong> i wybieramy strefę wyszukiwania w przód (w tym przypadku mamy tylko jedną, więc wybrała się od razu)</figcaption>
+<img src="img/Serwer%20DNS/10.png" alt="W edytorze strefy zaznaczamy opcję Automatically Generate Records From i wybieramy strefę wyszukiwania w przód (w tym przypadku mamy tylko jedną, więc wybrała się od razu)" /><figcaption>W edytorze strefy zaznaczamy opcję <strong>Automatically Generate Records From</strong> i wybieramy strefę wyszukiwania w przód (w tym przypadku mamy tylko jedną, więc wybrała się od razu)</figcaption>
 </figure>
 <figure>
-<img src="img/Serwer%20DNS/11.png" alt="" /><figcaption>Dodajemy rekord NS, w strefie wyszukiwania w tył tak samo jak w strefie wyszukiwania w przód</figcaption>
+<img src="img/Serwer%20DNS/11.png" alt="Dodajemy rekord NS, w strefie wyszukiwania w tył tak samo jak w strefie wyszukiwania w przód" /><figcaption>Dodajemy rekord NS, w strefie wyszukiwania w tył tak samo jak w strefie wyszukiwania w przód</figcaption>
 </figure>
-<h3 data-number="2.4.3" id="testowanie-serwera"><span class="header-section-number">2.4.3</span> Testowanie serwera</h3>
+<h3 id="testowanie-serwera"><span class="header-section-number">2.4.3</span> Testowanie serwera</h3>
 <figure>
-<img src="img/Serwer%20DNS/Testowanie/1.png" alt="" /><figcaption>Sprawdzam strefę wyszukiwania w przód na serwerze</figcaption>
-</figure>
-<figure>
-<img src="img/Serwer%20DNS/Testowanie/2.png" alt="" /><figcaption>Następnie sprawdzam strefę wyszukiwania w tył</figcaption>
+<img src="img/Serwer%20DNS/Testowanie/1.png" alt="Sprawdzam strefę wyszukiwania w przód na serwerze" /><figcaption>Sprawdzam strefę wyszukiwania w przód na serwerze</figcaption>
 </figure>
 <figure>
-<img src="img/Serwer%20DNS/Testowanie/3.png" alt="" /><figcaption>Sprawdzam działanie serwera na kliencie</figcaption>
+<img src="img/Serwer%20DNS/Testowanie/2.png" alt="Następnie sprawdzam strefę wyszukiwania w tył" /><figcaption>Następnie sprawdzam strefę wyszukiwania w tył</figcaption>
 </figure>
 <figure>
-<img src="img/Serwer%20DNS/Testowanie/4.png" alt="" /><figcaption>I na koniec wyszukiwanie w tył</figcaption>
+<img src="img/Serwer%20DNS/Testowanie/3.png" alt="Sprawdzam działanie serwera na kliencie" /><figcaption>Sprawdzam działanie serwera na kliencie</figcaption>
 </figure>
-<h2 data-number="2.5" id="serwer-dhcp"><span class="header-section-number">2.5</span> Serwer DHCP</h2>
+<figure>
+<img src="img/Serwer%20DNS/Testowanie/4.png" alt="I na koniec wyszukiwanie w tył" /><figcaption>I na koniec wyszukiwanie w tył</figcaption>
+</figure>
+<h2 id="serwer-dhcp"><span class="header-section-number">2.5</span> Serwer DHCP</h2>
 <ul>
 <li><strong> Nazwa usługi:</strong> dhcpd</li>
 <li><strong> Nazwa pakietu:</strong> yast2-dhcp-server</li>
