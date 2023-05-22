@@ -148,6 +148,12 @@ Jeżeli nie pamiętasz, które jest które użyj polecenia [id](#id).
 
 Wyświetla **UID** i **GID** określonego użytkownika.
 
+## lshw
+
+Wyświetla informacje na **temat sprzętu komputera**. Są to informacje dotyczące m.in.**  CPU**,  **󰈀  NIC**, **󰋊 dyski**, **  karty dźwiękowe**, **  USB**, itp.
+
+![lshw -short](img/lshw/1.png)
+
 ## Podsumowanie
 
 | Informacja                           | Polecenie                                         |
@@ -326,3 +332,55 @@ Przed nauką konfiguracji serwera DNS warto nauczyć się teorii, zestaw fiszek 
 - ** Plik konfiguracyjny:** /etc/dhcpd.conf
 - **ﴘ Domyślne numery portów**: 67 (serwer) i 68 (klient) - UDP
 - ** Link do dokumentacji:** [kliknij tutaj](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-dhcp.html)
+
+# SSH - Secure Shell
+
+## Kopiowanie plików
+
+### Polecenie scp
+
+Do kopiowania plików z serwera SSH i SFTP służy polecenie **scp**.
+
+Pamiętaj, że po połączeniu się z **ssh lądujemy w katalogu użytkownika** (np. /home/admin).
+
+#### Format komendy 
+
+** Pobieranie z serwera:**
+
+    scp [-r] uzytkownik@adres_serwera:plik_zrodlowy plik_docelowy
+
+Przykład: [kliknij tutaj](#przyklad-1.)
+
+** Wysyłanie do serwera:**
+
+    scp [-r] plik_zrodlowy uzytkownik@adres_serwera:plik_docelowy
+
+**-r** - kopiuje/wysyła wszystkie pliki wewnątrz danego katalogu.
+
+Zamiast adresu serwera możemy też podać ** nazwę hosta**.
+
+**Przykład 1.**
+
+    scp admin@10.0.0.1:/etc/os-release wersja_systemu
+
+Skopiuje to **plik /etc/os-release** z serwera do **pliku wersja_systemu** na kliencie.
+![Serwer](img/SSH/1.png)
+![Klient](img/SSH/2.png)
+
+**Przykład 2.**
+
+    scp test admin@10.0.0.1:test2
+
+Wysyłamy **plik test** z klienta do **pliku test2** na serwerze.
+![Klient](img/SSH/3.png)
+![Serwer](img/SSH/4.png)
+
+#### Źródło
+
+- [http://www.is.umk.pl/~grochu/unix/unix-2020/S10.html](http://www.is.umk.pl/~grochu/unix/unix-2020/S10.html)
+
+### Połączenie przez sftp
+
+Oprócz [scp](#polecenie-scp) możemy połączyć się przez **SFTP - Secure File Transfer Protocol (TCP 22)**. Wtedy obowiązują nas komendy tj. w zwykłym ftp, czyli **get** (pobieranie z serwera) lub **put** (wysyłanie do serwera).
+
+![Przykład](img/SSH/5.png)
