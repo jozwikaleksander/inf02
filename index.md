@@ -150,7 +150,7 @@ Wyświetla **UID** i **GID** określonego użytkownika.
 
 ## lshw
 
-Wyświetla informacje na **temat sprzętu komputera**. Są to informacje dotyczące m.in.**  CPU**,  **󰈀  NIC**, **󰋊 dyski**, **  karty dźwiękowe**, **  USB**, itp.
+Wyświetla informacje na **temat sprzętu komputera**. Są to informacje dotyczące m.in.** CPU**,  ** NIC**, ** dyski**, **  karty dźwiękowe**, <strong> <span style="opacity:0">__</span>USB</strong>, itp.
 
 ![lshw -short](img/lshw/1.png)
 
@@ -357,7 +357,7 @@ Przykład: [kliknij tutaj](#przyklad-1.)
 
 **-r** - kopiuje/wysyła wszystkie pliki wewnątrz danego katalogu.
 
-Zamiast adresu serwera możemy też podać ** nazwę hosta**.
+Zamiast adresu serwera możemy też podać <strong>  <span style="opacity:0">_</span>nazwę hosta</strong>.
 
 **Przykład 1.**
 
@@ -375,12 +375,12 @@ Wysyłamy **plik test** z klienta do **pliku test2** na serwerze.
 ![Klient](img/SSH/3.png)
 ![Serwer](img/SSH/4.png)
 
-#### Źródło
-
-- [http://www.is.umk.pl/~grochu/unix/unix-2020/S10.html](http://www.is.umk.pl/~grochu/unix/unix-2020/S10.html)
-
 ### Połączenie przez sftp
 
 Oprócz [scp](#polecenie-scp) możemy połączyć się przez **SFTP - Secure File Transfer Protocol (TCP 22)**. Wtedy obowiązują nas komendy tj. w zwykłym ftp, czyli **get** (pobieranie z serwera) lub **put** (wysyłanie do serwera).
 
 ![Przykład](img/SSH/5.png)
+
+## Źródła i ciekawe artykuły
+- [SSH vs SSL](https://kinsta.com/knowledgebase/ssh-vs-ssl/)
+- [Polecenia unix'a](http://www.is.umk.pl/~grochu/unix/unix-2020/S10.html)

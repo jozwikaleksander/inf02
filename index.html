@@ -89,6 +89,7 @@
 <li><a href="#polecenie-scp"><span class="toc-section-number">3.1.1</span> Polecenie scp</a></li>
 <li><a href="#połączenie-przez-sftp"><span class="toc-section-number">3.1.2</span> Połączenie przez sftp</a></li>
 </ul></li>
+<li><a href="#źródła-i-ciekawe-artykuły"><span class="toc-section-number">3.2</span> Źródła i ciekawe artykuły</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -206,7 +207,7 @@
 </figure>
 <p>Wyświetla <strong>UID</strong> i <strong>GID</strong> określonego użytkownika.</p>
 <h2 data-number="1.12" id="lshw"><span class="header-section-number">1.12</span> lshw</h2>
-<p>Wyświetla informacje na <strong>temat sprzętu komputera</strong>. Są to informacje dotyczące m.in.<strong> CPU</strong>, <strong>󰈀 NIC</strong>, <strong>󰋊 dyski</strong>, <strong> karty dźwiękowe</strong>, <strong> USB</strong>, itp.</p>
+<p>Wyświetla informacje na <strong>temat sprzętu komputera</strong>. Są to informacje dotyczące m.in.<strong> CPU</strong>, <strong> NIC</strong>, <strong> dyski</strong>, <strong> karty dźwiękowe</strong>, <strong> <span style="opacity:0">__</span>USB</strong>, itp.</p>
 <figure>
 <img src="img/lshw/1.png" alt="" /><figcaption>lshw -short</figcaption>
 </figure>
@@ -452,21 +453,22 @@
 <p><strong> Wysyłanie do serwera:</strong></p>
 <pre><code>scp [-r] plik_zrodlowy uzytkownik@adres_serwera:plik_docelowy</code></pre>
 <p><strong>-r</strong> - kopiuje/wysyła wszystkie pliki wewnątrz danego katalogu.</p>
-<p>Zamiast adresu serwera możemy też podać <strong> nazwę hosta</strong>.</p>
+<p>Zamiast adresu serwera możemy też podać <strong>  <span style="opacity:0">_</span>nazwę hosta</strong>.</p>
 <p><strong>Przykład 1.</strong></p>
 <pre><code>scp admin@10.0.0.1:/etc/os-release wersja_systemu</code></pre>
 <p>Skopiuje to <strong>plik /etc/os-release</strong> z serwera do <strong>pliku wersja_systemu</strong> na kliencie. <img src="img/SSH/1.png" alt="Serwer" /> <img src="img/SSH/2.png" alt="Klient" /></p>
 <p><strong>Przykład 2.</strong></p>
 <pre><code>scp test admin@10.0.0.1:test2</code></pre>
 <p>Wysyłamy <strong>plik test</strong> z klienta do <strong>pliku test2</strong> na serwerze. <img src="img/SSH/3.png" alt="Klient" /> <img src="img/SSH/4.png" alt="Serwer" /></p>
-<h4 data-number="3.1.1.2" id="źródło"><span class="header-section-number">3.1.1.2</span> Źródło</h4>
-<ul>
-<li><a href="http://www.is.umk.pl/~grochu/unix/unix-2020/S10.html">http://www.is.umk.pl/~grochu/unix/unix-2020/S10.html</a></li>
-</ul>
 <h3 data-number="3.1.2" id="połączenie-przez-sftp"><span class="header-section-number">3.1.2</span> Połączenie przez sftp</h3>
 <p>Oprócz <a href="#polecenie-scp">scp</a> możemy połączyć się przez <strong>SFTP - Secure File Transfer Protocol (TCP 22)</strong>. Wtedy obowiązują nas komendy tj. w zwykłym ftp, czyli <strong>get</strong> (pobieranie z serwera) lub <strong>put</strong> (wysyłanie do serwera).</p>
 <figure>
 <img src="img/SSH/5.png" alt="" /><figcaption>Przykład</figcaption>
 </figure>
+<h2 data-number="3.2" id="źródła-i-ciekawe-artykuły"><span class="header-section-number">3.2</span> Źródła i ciekawe artykuły</h2>
+<ul>
+<li><a href="https://kinsta.com/knowledgebase/ssh-vs-ssl/">SSH vs SSL</a></li>
+<li><a href="http://www.is.umk.pl/~grochu/unix/unix-2020/S10.html">Polecenia unix’a</a></li>
+</ul>
 </body>
 </html>
