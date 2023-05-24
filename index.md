@@ -1,3 +1,4 @@
+<main>
 # Diagnostyka systemu Linux
 
 Zobacz [ podsumowanie](#podsumowanie).
@@ -158,19 +159,19 @@ Wyświetla informacje na **temat sprzętu komputera**. Są to informacje dotycz�
 
 | Informacja                           | Polecenie                                         |
 | ------------------------------------ | ------------------------------------------------- |
-|  Karta graficzna                    | lspci -v \| more [](#lspci)                      |
-|  Karta sieciowa                     | lspci -v \| more [](#lspci)                      |
-|  Nazwa i wersja system operacyjnego | /etc/os-release [](#plik-etcos-release)          |
-|  Wersja jądra                       | uname -r [](#uname)                              |
-|  Architektura                       | uname -p [](#uname)                              |
-|  Pamięć RAM                         | dmidecode -t memory [](#dmidecode)               |
-|  Płyta główna                       | dmidecode -t baseboard [](#dmidecode)            |
-|  Procesy i zasoby komputera         | top [](#top)                                     |
-| 猪 Rozmiar katalogu                  | du [](#du)                                       |
-|  Nazwa hosta                        | hostname [](#hostname)                           |
-|  Używana powłoka                    | /etc/passwd [](#plik-etc-passwd)                 |
-| פּ Ścieżka do katalogu domowego       | /etc/passwd [](#plik-etc-passwd)                 |
-|  UID i GID użytkownika              | /etc/passwd [](#plik-etc-passwd) lub id [](#id) |
+|  Karta graficzna                    | [lspci -v \| more](#lspci)                      |
+|  Karta sieciowa                     | [lspci -v \| more](#lspci)                      |
+|  Nazwa i wersja system operacyjnego | [/etc/os-release](#plik-etcos-release)          |
+|  Wersja jądra                       | [uname -r](#uname)                              |
+|  Architektura                       | [uname -p](#uname)                              |
+|   Pamięć RAM                         | [dmidecode -t memory](#dmidecode)               |
+|  Płyta główna                       | [dmidecode -t baseboard](#dmidecode)            |
+|  Procesy i zasoby komputera         | [top](#top)                                     |
+| 猪 Rozmiar katalogu                   | [du](#du)                                       |
+|  Nazwa hosta                        | [hostname](#hostname)                           |
+|  Używana powłoka                    | [/etc/passwd](#plik-etc-passwd)                 |
+| פּ Ścieżka do katalogu domowego       | [/etc/passwd](#plik-etc-passwd)                 |
+|  UID i GID użytkownika              | [/etc/passwd](#plik-etc-passwd)<span style="opacity:0;">_</span>lub [id ](#id) |
 
 # Konfiguracja serwera tekstowego Open Suse 42.3
 
@@ -223,8 +224,40 @@ Wyświetla informacje na **temat sprzętu komputera**. Są to informacje dotycz�
 ** Użytkownik uwierzytelniony** - posiada własne konto w naszym serwerze.
 
 #### Umask
-![](img/FTP/umask.png)
+Tworzymy przez **negację właściwych uprawnień**.
 
+**Składa się z 4 pól uprawnień:**
+
+-  <span class="inv">_</span>specjalne (zawsze 0)
+-  <span class="inv">_</span>właściciel
+-   <span class="inv">_</span>grupa do której należy właściciel
+-  <span class="inv">_</span>inni użytkownicy
+
+Jeżeli **odczyt** to r i x (żeby wejść do katalogu).
+
+**Wartości dla uprawnień:**
+
+- **r** - read - odczyt - 4
+- **w** - write - zapis - 2
+- **x** - execute - uruchomienie - 1
+
+##### Przykład 1.
+Sam odczyt dla wszystkich, czyli **read** i **execute**.
+
+4 (read) + 1 (execute) = 5
+7 - 5 = 2
+
+**Składamy w całość:**
+0222
+
+##### Przykład 2.
+Odczyt, zapis i uruchomienie dla wszystkich, czyli **read**, **write** i **execute**.
+
+4 (read) + 2 (write) + 1 (execute) = 7
+7 - 7 = 0
+
+**Składamy w całość:**
+0000
 
 #### Łączenie się / testowanie serwera FTP
 **Program PuTTY** - umożliwia połączenie się z innym hostem (za pomocą protokołów telnet, ssh, ftp itp.). W przypadku FTP będziemy korzystać z narzędzia **psftp** (które wchodzi w skład PuTTY). Aby pobrać **PuTTY** [kliknij tutaj](https://putty.org/)
@@ -345,13 +378,13 @@ Pamiętaj, że po połączeniu się z **ssh lądujemy w katalogu użytkownika** 
 
 #### Format komendy 
 
-** Pobieranie z serwera:**
+<strong>  <span style="opacity:0">_</span>Pobieranie z serwera:</strong>
 
     scp [-r] uzytkownik@adres_serwera:plik_zrodlowy plik_docelowy
 
 Przykład: [kliknij tutaj](#przyklad-1.)
 
-** Wysyłanie do serwera:**
+<strong>  <span style="opacity:0">_</span>Wysyłanie do serwera:</strong>
 
     scp [-r] plik_zrodlowy uzytkownik@adres_serwera:plik_docelowy
 
@@ -359,7 +392,7 @@ Przykład: [kliknij tutaj](#przyklad-1.)
 
 Zamiast adresu serwera możemy też podać <strong>  <span style="opacity:0">_</span>nazwę hosta</strong>.
 
-**Przykład 1.**
+<strong>  <span style="opacity:0">_</span>Przykład 1.</strong>
 
     scp admin@10.0.0.1:/etc/os-release wersja_systemu
 
@@ -367,7 +400,7 @@ Skopiuje to **plik /etc/os-release** z serwera do **pliku wersja_systemu** na kl
 ![Serwer](img/SSH/1.png)
 ![Klient](img/SSH/2.png)
 
-**Przykład 2.**
+<strong>  <span style="opacity:0">_</span>Przykład 2.</strong>
 
     scp test admin@10.0.0.1:test2
 
@@ -384,3 +417,4 @@ Oprócz [scp](#polecenie-scp) możemy połączyć się przez **SFTP - Secure Fil
 ## Źródła i ciekawe artykuły
 - [SSH vs SSL](https://kinsta.com/knowledgebase/ssh-vs-ssl/)
 - [Polecenia unix'a](http://www.is.umk.pl/~grochu/unix/unix-2020/S10.html)
+</main>

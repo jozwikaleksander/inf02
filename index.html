@@ -93,6 +93,7 @@
 </ul></li>
 </ul>
 </nav>
+<main>
 <h1 data-number="1" id="diagnostyka-systemu-linux"><span class="header-section-number">1</span> Diagnostyka systemu Linux</h1>
 <p>Zobacz <a href="#podsumowanie"> podsumowanie</a>.</p>
 <p>Oprócz poleceń warto rozumieć 📁 <strong>strukturę systemu plików Linux’a</strong>. Fiszki programu Anki dotyczące folderów znajdziesz tutaj: <a href="https://www.github.com/jozwikaleksander/inf02/flashcards/Linux%20File%20System%20Structure.apkg">kliknij tutaj</a></p>
@@ -222,55 +223,55 @@
 <tbody>
 <tr class="odd">
 <td> Karta graficzna</td>
-<td>lspci -v | more <a href="#lspci"></a></td>
+<td><a href="#lspci">lspci -v | more</a></td>
 </tr>
 <tr class="even">
 <td> Karta sieciowa</td>
-<td>lspci -v | more <a href="#lspci"></a></td>
+<td><a href="#lspci">lspci -v | more</a></td>
 </tr>
 <tr class="odd">
 <td> Nazwa i wersja system operacyjnego</td>
-<td>/etc/os-release <a href="#plik-etcos-release"></a></td>
+<td><a href="#plik-etcos-release">/etc/os-release</a></td>
 </tr>
 <tr class="even">
 <td> Wersja jądra</td>
-<td>uname -r <a href="#uname"></a></td>
+<td><a href="#uname">uname -r</a></td>
 </tr>
 <tr class="odd">
 <td> Architektura</td>
-<td>uname -p <a href="#uname"></a></td>
+<td><a href="#uname">uname -p</a></td>
 </tr>
 <tr class="even">
-<td> Pamięć RAM</td>
-<td>dmidecode -t memory <a href="#dmidecode"></a></td>
+<td> Pamięć RAM</td>
+<td><a href="#dmidecode">dmidecode -t memory</a></td>
 </tr>
 <tr class="odd">
 <td> Płyta główna</td>
-<td>dmidecode -t baseboard <a href="#dmidecode"></a></td>
+<td><a href="#dmidecode">dmidecode -t baseboard</a></td>
 </tr>
 <tr class="even">
 <td> Procesy i zasoby komputera</td>
-<td>top <a href="#top"></a></td>
+<td><a href="#top">top</a></td>
 </tr>
 <tr class="odd">
 <td>猪 Rozmiar katalogu</td>
-<td>du <a href="#du"></a></td>
+<td><a href="#du">du</a></td>
 </tr>
 <tr class="even">
 <td> Nazwa hosta</td>
-<td>hostname <a href="#hostname"></a></td>
+<td><a href="#hostname">hostname</a></td>
 </tr>
 <tr class="odd">
 <td> Używana powłoka</td>
-<td>/etc/passwd <a href="#plik-etc-passwd"></a></td>
+<td><a href="#plik-etc-passwd">/etc/passwd</a></td>
 </tr>
 <tr class="even">
 <td>פּ Ścieżka do katalogu domowego</td>
-<td>/etc/passwd <a href="#plik-etc-passwd"></a></td>
+<td><a href="#plik-etc-passwd">/etc/passwd</a></td>
 </tr>
 <tr class="odd">
 <td> UID i GID użytkownika</td>
-<td>/etc/passwd <a href="#plik-etc-passwd"></a> lub id <a href="#id"></a></td>
+<td><a href="#plik-etc-passwd">/etc/passwd</a><span style="opacity:0;">_</span>lub <a href="#id">id</a></td>
 </tr>
 </tbody>
 </table>
@@ -320,7 +321,29 @@
 <p><strong> Użytkownik anonimowy</strong> - każdy kto chce skorzystać z serwera nie mając przy tym swojego konta. Zazwyczaj można się połączyć anonimowo korzystając z login’u: <strong>anonymous</strong> lub wybierając odpowiednie ustawienie/przełącznik.</p>
 <p><strong> Użytkownik uwierzytelniony</strong> - posiada własne konto w naszym serwerze.</p>
 <h4 data-number="2.3.2.2" id="umask"><span class="header-section-number">2.3.2.2</span> Umask</h4>
-<p><img src="img/FTP/umask.png" /></p>
+<p>Tworzymy przez <strong>negację właściwych uprawnień</strong>.</p>
+<p><strong>Składa się z 4 pól uprawnień:</strong></p>
+<ul>
+<li> <span class="inv">_</span>specjalne (zawsze 0)</li>
+<li> <span class="inv">_</span>właściciel</li>
+<li> <span class="inv">_</span>grupa do której należy właściciel</li>
+<li> <span class="inv">_</span>inni użytkownicy</li>
+</ul>
+<p>Jeżeli <strong>odczyt</strong> to r i x (żeby wejść do katalogu).</p>
+<p><strong>Wartości dla uprawnień:</strong></p>
+<ul>
+<li><strong>r</strong> - read - odczyt - 4</li>
+<li><strong>w</strong> - write - zapis - 2</li>
+<li><strong>x</strong> - execute - uruchomienie - 1</li>
+</ul>
+<h5 data-number="2.3.2.2.1" id="przykład-1."><span class="header-section-number">2.3.2.2.1</span> Przykład 1.</h5>
+<p>Sam odczyt dla wszystkich, czyli <strong>read</strong> i <strong>execute</strong>.</p>
+<p>4 (read) + 1 (execute) = 5 7 - 5 = 2</p>
+<p><strong>Składamy w całość:</strong> 0222</p>
+<h5 data-number="2.3.2.2.2" id="przykład-2."><span class="header-section-number">2.3.2.2.2</span> Przykład 2.</h5>
+<p>Odczyt, zapis i uruchomienie dla wszystkich, czyli <strong>read</strong>, <strong>write</strong> i <strong>execute</strong>.</p>
+<p>4 (read) + 2 (write) + 1 (execute) = 7 7 - 7 = 0</p>
+<p><strong>Składamy w całość:</strong> 0000</p>
 <h4 data-number="2.3.2.3" id="łączenie-się-testowanie-serwera-ftp"><span class="header-section-number">2.3.2.3</span> Łączenie się / testowanie serwera FTP</h4>
 <p><strong>Program PuTTY</strong> - umożliwia połączenie się z innym hostem (za pomocą protokołów telnet, ssh, ftp itp.). W przypadku FTP będziemy korzystać z narzędzia <strong>psftp</strong> (które wchodzi w skład PuTTY). Aby pobrać <strong>PuTTY</strong> <a href="https://putty.org/">kliknij tutaj</a></p>
 <p><strong>Sposoby na połączenie się z serwerem FTP:</strong> - Przeglądarka Internet Explorer - Narzędzia ftp w wierszu poleceń - Eksplorator plików - Filezilla lub PuTTY</p>
@@ -447,17 +470,17 @@
 <p>Do kopiowania plików z serwera SSH i SFTP służy polecenie <strong>scp</strong>.</p>
 <p>Pamiętaj, że po połączeniu się z <strong>ssh lądujemy w katalogu użytkownika</strong> (np. /home/admin).</p>
 <h4 data-number="3.1.1.1" id="format-komendy"><span class="header-section-number">3.1.1.1</span> Format komendy</h4>
-<p><strong> Pobieranie z serwera:</strong></p>
+<p><strong>  <span style="opacity:0">_</span>Pobieranie z serwera:</strong></p>
 <pre><code>scp [-r] uzytkownik@adres_serwera:plik_zrodlowy plik_docelowy</code></pre>
 <p>Przykład: <a href="#przyklad-1.">kliknij tutaj</a></p>
-<p><strong> Wysyłanie do serwera:</strong></p>
+<p><strong>  <span style="opacity:0">_</span>Wysyłanie do serwera:</strong></p>
 <pre><code>scp [-r] plik_zrodlowy uzytkownik@adres_serwera:plik_docelowy</code></pre>
 <p><strong>-r</strong> - kopiuje/wysyła wszystkie pliki wewnątrz danego katalogu.</p>
 <p>Zamiast adresu serwera możemy też podać <strong>  <span style="opacity:0">_</span>nazwę hosta</strong>.</p>
-<p><strong>Przykład 1.</strong></p>
+<p><strong>  <span style="opacity:0">_</span>Przykład 1.</strong></p>
 <pre><code>scp admin@10.0.0.1:/etc/os-release wersja_systemu</code></pre>
 <p>Skopiuje to <strong>plik /etc/os-release</strong> z serwera do <strong>pliku wersja_systemu</strong> na kliencie. <img src="img/SSH/1.png" alt="Serwer" /> <img src="img/SSH/2.png" alt="Klient" /></p>
-<p><strong>Przykład 2.</strong></p>
+<p><strong>  <span style="opacity:0">_</span>Przykład 2.</strong></p>
 <pre><code>scp test admin@10.0.0.1:test2</code></pre>
 <p>Wysyłamy <strong>plik test</strong> z klienta do <strong>pliku test2</strong> na serwerze. <img src="img/SSH/3.png" alt="Klient" /> <img src="img/SSH/4.png" alt="Serwer" /></p>
 <h3 data-number="3.1.2" id="połączenie-przez-sftp"><span class="header-section-number">3.1.2</span> Połączenie przez sftp</h3>
@@ -470,5 +493,6 @@
 <li><a href="https://kinsta.com/knowledgebase/ssh-vs-ssl/">SSH vs SSL</a></li>
 <li><a href="http://www.is.umk.pl/~grochu/unix/unix-2020/S10.html">Polecenia unix’a</a></li>
 </ul>
+</main>
 </body>
 </html>
