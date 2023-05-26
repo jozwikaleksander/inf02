@@ -169,6 +169,7 @@ Wyświetla informacje na **temat sprzętu komputera**. Są to informacje dotycz�
 |  Wersja jądra                       | [uname -r](#uname)                              |
 |  Architektura                       | [uname -p](#uname)                              |
 |   Pamięć RAM                         | [dmidecode -t memory](#dmidecode)               |
+|  Procesor                             | [dmidecode -t processor](#dmidecode)<span style="opacity:0;">_</span>lub [lscpu](#lscpu) |
 |  Płyta główna                       | [dmidecode -t baseboard](#dmidecode)            |
 |  Procesy i zasoby komputera         | [top](#top)                                     |
 | 猪 Rozmiar katalogu                   | [du](#du)                                       |
