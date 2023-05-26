@@ -91,6 +91,19 @@
 </ul></li>
 <li><a href="#źródła-i-ciekawe-artykuły"><span class="toc-section-number">3.2</span> Źródła i ciekawe artykuły</a></li>
 </ul></li>
+<li><a href="#egzamin-próbny"><span class="toc-section-number">4</span> Egzamin próbny</a>
+<ul>
+<li><a href="#treść-zadania"><span class="toc-section-number">4.1</span> Treść zadania</a></li>
+<li><a href="#konfiguracja-routera"><span class="toc-section-number">4.2</span> Konfiguracja router’a</a></li>
+<li><a href="#konfiguracja-przełącznika"><span class="toc-section-number">4.3</span> Konfiguracja przełącznika</a></li>
+<li><a href="#konfiguracja-komputerów"><span class="toc-section-number">4.4</span> Konfiguracja komputerów</a>
+<ul>
+<li><a href="#konfiguracja-serwera-2"><span class="toc-section-number">4.4.1</span> Konfiguracja serwera</a></li>
+<li><a href="#konfiguracja-klienta"><span class="toc-section-number">4.4.2</span> Konfiguracja klienta</a></li>
+</ul></li>
+<li><a href="#testowanie-połączeń"><span class="toc-section-number">4.5</span> Testowanie połączeń</a></li>
+<li><a href="#konfiguracja-serwera-http"><span class="toc-section-number">4.6</span> Konfiguracja serwera HTTP</a></li>
+</ul></li>
 </ul>
 </nav>
 <main>
@@ -493,6 +506,241 @@
 <li><a href="https://kinsta.com/knowledgebase/ssh-vs-ssl/">SSH vs SSL</a></li>
 <li><a href="http://www.is.umk.pl/~grochu/unix/unix-2020/S10.html">Polecenia unix’a</a></li>
 </ul>
+<h1 data-number="4" id="egzamin-próbny"><span class="header-section-number">4</span> Egzamin próbny</h1>
+<div class="warning">
+<h4>
+Uwaga!
+</h4>
+<p>Część zadań pominąłem, w tym montaż okablowania, konfiguracja drukarki i spisywanie wyników pamięci RAM.</p>
+</div>
+<h2 data-number="4.1" id="treść-zadania"><span class="header-section-number">4.1</span> Treść zadania</h2>
+<ol type="1">
+<li><p>Wykonaj montaż okablowania sieciowego:</p>
+<ul>
+<li>podłącz kabel U/UTP do panelu krosowego według sekwencji <strong>T568B</strong></li>
+<li>drugiego końca kabla U/UTP wtyk 8P8C według sekwencji <strong>T568B</strong></li>
+</ul></li>
+<li><p>Skonfiguruj interfejsy sieciowego routera z Wi-Fi według zaleceń.</p>
+<ol type="1">
+<li>włączona obsługa <strong>VLAN 802.1Q</strong></li>
+<li>sieć VLAN o nazwie <strong>VLAN1 i ID = 1</strong></li>
+<li>sieć VLAN o nazwie <strong>VLAN2 i ID = 2</strong></li>
+<li>adres IP dla interfejsu powiązanego z siecią VLAN1: <strong>192.168.0.X/24</strong></li>
+<li>adres IP dla interfejsu powiązanego z siecią VLAN2: <strong>192.168.1.X/24</strong></li>
+<li>port 2 przypisany z tagowaniem do sieci VLAN o ID=1 i ID=2</li>
+<li><strong>włącz routing między sieciami</strong> <strong>VLAN</strong></li>
+<li><strong>serwer DHCP włączony</strong> dla sieci <strong>VLAN2</strong></li>
+<li><strong>ustawiona pula adresowa DHCP (dla VLAN2):</strong> 192.168.1.100-192.168.1.150</li>
+<li><strong>domyślna brama serwera dla klientów DHCP:</strong> 192.168.1.X</li>
+<li><strong>adres bramy serwera dla klientów DHCP:</strong> 192.168.1.X</li>
+<li><strong>adres serwera DNS dla klientów DHCP:</strong> 192.168.0.200+X</li>
+</ol></li>
+<li><p><strong>Skonfiguruj przełącznik według zaleceń</strong></p>
+<ul>
+<li><strong>adres IP:</strong> 192.168.0.100+X z maską 255.255.255.0, gdzie X to twój numer z dziennika</li>
+<li><strong>brama domyślna IP routera</strong> dla interfejsu powiązanego z VLAN1, jeżeli jest wymagana</li>
+<li>włączona obsługa VLAN 802.1Q</li>
+<li>utworzona sieć VLAN o nazwie VLAN1 i ID=1</li>
+<li>utworzona sieć VLAN o nazwie VLAN2 i ID=2</li>
+<li>port 1 przypisany <strong>bez tagowania</strong> (tryb dostępu) do VLAN o <strong>ID=1</strong></li>
+<li>port 2 przypisany <strong>bez tagowania</strong> (tryb dostępu) do VLAN o <strong>ID=2</strong></li>
+<li>port 3 przypisany z <strong>tagowaniem</strong> do <strong>VLAN1</strong> i <strong>VLAN2</strong></li>
+</ul></li>
+<li><p>Za pomocą kabli połączeniowych podłącz urządzenia zgodnie ze schematem.<img src="img/Egzamin%20pr%C3%B3bny/Tre%C5%9B%C4%87%20zadania/schemat.png" /></p></li>
+<li><p>Skonfiguruj interfejsy sieciowe serwera w systemie Linux oraz stacji roboczej w systemie Windows zgodnie z zaleceniami.</p>
+<ul>
+<li>interfejs sieciowy serwera podłączony do przełącznika
+<ul>
+<li><strong>nazwa połączenia:</strong> VLAN1</li>
+<li><strong>adres IP:</strong> 192.168.0.200+X z maską 255.255.255.0</li>
+<li><strong>brama domyślna:</strong> adres IP routera dla interfejsu powiązanego z VLAN1</li>
+<li><strong>serwer DNS:</strong> localhost</li>
+</ul></li>
+<li>interfejs sieciowy stacji roboczej
+<ul>
+<li>nazwa połączenia: VLAN2</li>
+<li>adres IP: automatycznie</li>
+</ul></li>
+<li>za pomocą poleceń systemowych wykonaj test komunikacji stacji roboczej z routerem, przełącznikiem.</li>
+</ul></li>
+<li><p>W katalogu głównym serwera <strong>utwórz folder /stronawww</strong>, a w nim <strong>plik index.html</strong> zawierający tekst:</p>
+<pre><code> &lt;html&gt;
+     &lt;body&gt;
+         &lt;p&gt;&quot;Próbny egzamin zawodowy Kwalifikacja INF.02&quot;&lt;/p&gt;
+     &lt;/body&gt;
+ &lt;/html&gt;</code></pre></li>
+</ol>
+<ul>
+<li>ustaw <strong>właściciela</strong> utworzonego katalogu i pliku na użytkownika i grupę na uprawnieniach, na których działa serwer HTTP.</li>
+<li><strong>skonfiguruj serwer HTTP</strong> tak, aby główna witryna udostępniała zawartość /stronawww.</li>
+</ul>
+<ol type="1">
+<li>Na stacji roboczej zainstaluj <strong>drukarkę sieciową</strong> na lokalnym porcie TCP/IP. Adres IP drukarki 192.168.0.200.</li>
+<li>Utwórz <strong>plik tekstowy</strong> zawierający twój numer stanowiska egzaminacyjnego i twój numer PESEL, wydrukuj go na drukarce. Dołącz wydruk arkusza egzaminacyjnego potwierdzając prawidłową instalację drukarki.</li>
+<li>Na stacji roboczej na pulpicie użytkownika Administrator znajdują się wyniki <strong>testowania pamięci RAM</strong>. Na ich podstawie uzupełnij tabelę:
+<table>
+<tbody>
+<tr>
+<th rowspan="4">
+RAM 1
+</th>
+<td>
+Typ pamięci
+</td>
+<td>
+<span style="opacity:0">__________________</span>
+</td>
+</tr>
+<tr>
+<td>
+Slot
+</td>
+<td>
+<span style="opacity:0">__________________</span>
+</td>
+</tr>
+<tr>
+<td>
+Przepustowość [MB/s]
+</td>
+<td>
+<span style="opacity:0">__________________</span>
+</td>
+</tr>
+<tr>
+<td>
+Częstotliwość
+</td>
+<td>
+<span style="opacity:0">__________________</span>
+</td>
+</tr>
+<tr>
+<th rowspan="4">
+RAM 1
+</th>
+<td>
+Typ pamięci
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Slot
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Przepustowość [MB/s]
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Częstotliwość
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></li>
+<li>Na stacji roboczej sprawdź czy <strong>wyświetla się udostępniona witryna</strong>.</li>
+</ol>
+<p>Czas przeznaczony na wykonanie zadania wynosi <strong>150 min</strong>.</p>
+<p><strong>Ocenie podlegać będą 4 rezultaty:</strong></p>
+<ul>
+<li>wykonane okablowanie sieciowe i połączenie fizyczne urządzeń,</li>
+<li>skonfigurowane urządzenia sieciowe</li>
+<li>skonfigurowane interfejsy sieciowe serwera i stacji roboczej</li>
+<li>skonfigurowany serwer sieci Web i połączenie z drukarką sieciową.</li>
+<li>przebieg wykonania kabla połączeniowego i połączenia urządzeń.</li>
+</ul>
+<h2 data-number="4.2" id="konfiguracja-routera"><span class="header-section-number">4.2</span> Konfiguracja router’a</h2>
+<p><strong>Model urządzenia:</strong> Cisco RW110W</p>
+<p><strong>Emulator:</strong> <a href="https://www.cisco.com/assets/sol/sb/RV110W_Emulators/RV110W_Emulator_v1.0.0.2/default.asp.htm">kliknij tutaj</a></p>
+<p>Aby dostać się do urządzenia podłączam go do stacji i <strong>konfiguruje automatyczne pobieranie adresu IP</strong> (domyślnie DHCP jest włączony na routerze). Następnie wchodzę do konfiguracji przy użyciu przeglądarki, adres IP to <strong>192.168.1.1</strong>.</p>
+<ol type="1">
+<li>Obsługa <strong>standardu 802.1Q</strong> (dot1Q) jest już domyślnie włączona.</li>
+<li>Jako, że <strong>VLAN 1</strong> jest <strong>domyślnym</strong> VLAN’em, a utworzenie VLAN 2 jest <strong>niemożliwe</strong> zamienimy ID na kolejno <strong>10</strong> i <strong>20</strong>. W celu ich utworzenia kierujemy się do <strong>Networking&gt;LAN&gt;LAN configuration</strong> i tworzymy odpowiednie <strong>VLAN’y</strong>. Następnie wykluczam domyślny VLAN 1 ze wszystkich portów oprócz ostatniego (ewentualnie jako furtka gdyby coś poszło nie tak).<img src="img/Egzamin%20próbny/Zadanie%202/1.png" /></li>
+<li>Zmieniam adresy IP dla poszczególnych VLAN’ów. Pamiętaj, że po każdej zmianie adresów router będzie chciał się <strong>zrestartować</strong>, w razie potrzeby zmień adres IP na komputerze lub odśwież go (<em>ipconfig /release i ipconfig /renew</em>).
+<ul>
+<li><strong>Dla VLAN 1</strong> ustawiam wybrany adres (inny niż dla VLAN 1 i VLAN 2, w tym przypadku wybrałem 5). Zostawiam sobie serwer DHCP. <img src="img/Egzamin%20próbny/Zadanie%202/2.png" /></li>
+<li>Dla VLAN 10 ustawiam adres 192.168.0.1 z prefiksem /24. Zgodnie z poleceniem wyłączam serwer DHCP. <img src="img/Egzamin%20próbny/Zadanie%202/4.png" /></li>
+<li>Dla <strong>VLAN 20</strong> ustawiam <strong>adres 192.168.1.1</strong> z prefiksem /24. Konfiguruje również serwer DHCP, <strong>adres początkowy zostaje niezmieniony</strong>, natomiast <strong>maksymalna liczba użytkowników</strong> zostaje zmieniona na <strong>51</strong> (o jeden większa niż różnica 150 i 100, jeżeli zapomnisz jak to działa na egzaminie zawsze możesz sprawdzić ustawioną pulę po zapisaniu ustawień). Ustawiam też <strong>adres serwera DNS</strong> na adres serwera, czyli 192.168.0.200. <img src="img/Egzamin%20próbny/Zadanie%202/5.png" /></li>
+<li>Teraz zostaje nam włączenie routowania między VLAN’ami, czyli <strong>Inter-VLAN routing</strong>. Rozwiązanie, które tutaj tworzymy to tzw. <strong>router na patyku</strong> (<a href="https://contenthub.netacad.com/legacy/RSE/5.02/pl/course/module5/5.1.1.3/5.1.1.3.html">więcej informacji znajdziesz tutaj</a>).<img src="img/Egzamin%20próbny/Zadanie%202/3.png" /></li>
+</ul></li>
+</ol>
+<h2 data-number="4.3" id="konfiguracja-przełącznika"><span class="header-section-number">4.3</span> Konfiguracja przełącznika</h2>
+<p><strong>Model przełącznika:</strong> Cisco SG 200-8G</p>
+<p><strong>Emulator:</strong> <a href="https://www.cisco.com/assets/sol/sb/SG200_Emulators/SG200_Emulator_v1-2-9/config/home_SG_200-50P_1_2_9.htm">kliknij tutaj</a></p>
+<ol type="1">
+<li><p>Przełącznik domyślnie ma adres <strong>192.168.1.254/24</strong>, więc musimy na stacji ustawić adres w tej podsieci (np. 192.168.1.1/24).</p>
+<p><img src="img/Egzamin%20próbny/Zadanie%202/Zadanie%203/1.png" /></p></li>
+<li><p>Po wejściu na przełącznik i zmianie hasła, przechodzimy do <strong>VLAN Management&gt;Create VLAN</strong>.</p>
+<p><img src="img/Egzamin%20próbny/Zadanie%202/Zadanie%203/2.png" /></p>
+<p>Następnie tworzymy VLAN’y 10 i 20.</p>
+<p><img src="img/Egzamin%20próbny/Zadanie%202/Zadanie%203/4.png" /></p></li>
+<li><p>Teraz pora zmienić domyślny VLAN na 10, poprzez <strong>VLAN management&gt;Default VLAN settings</strong>.<img src="img/Egzamin%20próbny/Zadanie%202/Zadanie%203/5.png" /></p></li>
+<li><p>Następnie przypisujemy VLAN’y do interfejsów.</p>
+<ul>
+<li>zmieniliśmy domyślny VLAN, dlatego VLAN 1 nie jest już przypisany do żadnego portu.<img src="img/Egzamin%20pr%C3%B3bny/Zadanie%202/Zadanie%203/6.png" /></li>
+<li>VLAN 10 przypisuje do portu g1(nie tagowany - Untagged) i portu g3 (tagowany - Tagged).</li>
+<li>VLAN 20 przypisuje do portu g2(nie tagowany - Untagged) i portu g3 (tagowany - Tagged).</li>
+</ul></li>
+<li><p>W ustawieniach interfejsów (<strong>VLAN Management&gt;Interface settings</strong>) zmieniamy typy interfejsów g1 i g2 na access (tryb dostępu, jeden VLAN na jednym porcie) i g3 na trunk (wiele VLAN’ów na jednym porcie).<img src="img/Egzamin%20próbny/Zadanie%202/Zadanie%203/7.png" /></p></li>
+</ol>
+<h2 data-number="4.4" id="konfiguracja-komputerów"><span class="header-section-number">4.4</span> Konfiguracja komputerów</h2>
+<h3 data-number="4.4.1" id="konfiguracja-serwera-2"><span class="header-section-number">4.4.1</span> Konfiguracja serwera</h3>
+<ul>
+<li><p>Zaczynam od konfiguracji serwera, otwieram <strong>Yast’a</strong> i przechodzę do <strong>System</strong> i <strong>Network Settings</strong>.</p>
+<p><img src="img/Egzamin%20próbny/Zadanie%205/8.png" /></p></li>
+<li><p>Wybieram <strong>interfejs</strong> i klikam <strong>Edit (F4)</strong>.</p>
+<p><img src="img/Egzamin%20próbny/Zadanie%205/9.png" /></p></li>
+<li><p><strong>Wpisuje statyczny adres IP:</strong> 192.168.0.200 (powinno być 201 🙂) i podaje <strong>hostname</strong>: serwer.</p>
+<p><img src="img/Egzamin%20próbny/Zadanie%205/10.png" /></p></li>
+<li><p>Przechodzę do zakładki <strong>General</strong> i zmieniam nazwę interfejsu na <strong>VLAN1</strong>, zapisuje ustawienia interfejsu klikając <strong>F10</strong>.</p>
+<p><img src="img/Egzamin%20próbny/Zadanie%205/11.png" /></p></li>
+<li><p>Przechodzę do zakładki <strong>Hostname/DNS</strong> i upewniam się, że hostname jest ustawiony oraz, że <strong>serwer DNS</strong> to <strong>localhost</strong>, czyli 127.0.0.1.</p>
+<p><img src="img/Egzamin%20próbny/Zadanie%205/12.png" /></p></li>
+<li><p>W zakładce <strong>Routing</strong> dodaje nową <strong>trasę domyślną</strong>, czyli adres bramy domyślnej (routera) - <strong>192.168.0.1</strong>, podaje też nazwę interfejsu - <strong>VLAN1</strong>.</p>
+<p><img src="img/Egzamin%20próbny/Zadanie%205/13.png" /></p></li>
+</ul>
+<h3 data-number="4.4.2" id="konfiguracja-klienta"><span class="header-section-number">4.4.2</span> Konfiguracja klienta</h3>
+<ul>
+<li>Zmieniam ustawienia karty sieciowej na automatyczne pobieranie adresu IP i adresu serwera DNS.</li>
+</ul>
+<p><img src="img/Egzamin%20próbny/Zadanie%205/1.png" /></p>
+<h2 data-number="4.5" id="testowanie-połączeń"><span class="header-section-number">4.5</span> Testowanie połączeń</h2>
+<ul>
+<li><p>Serwer -&gt; Router (VLAN 1)</p>
+<p><img src="img/Egzamin%20pr%C3%B3bny/Zadanie%205/21.png" /></p></li>
+<li><p>Serwer -&gt; Router (VLAN 2)</p>
+<p><img src="img/Egzamin%20pr%C3%B3bny/Zadanie%205/Pasted%20image%2020230525123901.png" /></p></li>
+<li><p>Serwer -&gt; Klient</p>
+<p><img src="img/Egzamin%20pr%C3%B3bny/Zadanie%205/28.png" /></p></li>
+<li><p>Serwer -&gt; Przełącznik</p>
+<p><img src="img/Egzamin%20próbny/Zadanie%205/2.png" /></p></li>
+<li><p>Klient -&gt; Router (VLAN 1)!</p>
+<p><img src="img/Egzamin%20pr%C3%B3bny/Zadanie%205/Pasted%20image%2020230525123922.png" /></p></li>
+<li><p>Klient -&gt; Serwer</p>
+<p><img src="img/Egzamin%20pr%C3%B3bny/Zadanie%205/Pasted%20image%2020230525124018.png" /></p></li>
+</ul>
+<h2 data-number="4.6" id="konfiguracja-serwera-http"><span class="header-section-number">4.6</span> Konfiguracja serwera HTTP</h2>
+<p>Jeżeli ćwiczysz instalacje <strong>serwera HTTP</strong> w wirtualnej maszynie, to może się zdarzyć, że pomimo wybrania usługi HTTP podczas instalacji usługa <strong>Apache2</strong> jest niezainstalowana. W takim przypadku wystarczy ją zainstalować poleceniem:</p>
+<pre><code>    sudo zypper install yast2-http-server</code></pre>
+<ol type="1">
+<li>Otwieram <strong>Yast</strong>’a i przechodzę do <strong>Network Services&gt;Server HTTP</strong>.</li>
+<li>Wpisuje <strong>niestandardowe porty</strong> i <strong>interfejsy</strong> na których mamy nasłuchiwać, w tym przypadku zostawiam wszystko domyślnie (HTTP działa na porcie TCP 80).</li>
+<li>W trzecim kroku kreatora (Default Host) zmieniam ścieżkę do katalogu dokumentu (<strong>Document Root</strong> i <strong>Directory</strong>) według zadania, czyli w tym przypadku /stronawww.<img src="img/Egzamin%20próbny/Zadanie%206/15.png" /><img src="img/Egzamin%20próbny/Zadanie%206/16.png" /></li>
+<li>Zmieniam ustawienia uruchamiania serwera HTTP.<img src="img/Egzamin%20próbny/Zadanie%206/17.png" /></li>
+<li>Tworzę <strong>katalog /stronawww</strong>, a wewnątrz <strong>plik index.html</strong>.</li>
+<li>Za pomocą dowolnego edytora tekstu <strong>zmieniam zawartość pliku</strong>, ja wybrałem <strong>vim</strong> (możesz użyć nano lub mc jeżeli są zainstalowane).<img src="img/Egzamin%20próbny/Zadanie%206/19.png" /></li>
+<li>Pozostało nam sprawdzenie działania serwera HTTP na kliencie.</li>
+</ol>
 </main>
 </body>
 </html>

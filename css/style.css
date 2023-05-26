@@ -457,3 +457,9 @@ article{
 .inv{
   opacity: 0;
 }
+.warning{
+  background-color: #e03666;
+  opacity: 0.9;
+  padding:10px;
+  border-radius: 10px;
+}
