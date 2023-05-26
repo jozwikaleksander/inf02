@@ -1,3 +1,7 @@
+---
+title: INF02
+author:  <span style="opacity:0">__</span>Aleksander Jóźwik - [zobacz moją stronę  ](https://aleksanderjozwik.com/)
+...
 <main>
 # Diagnostyka systemu Linux
 
