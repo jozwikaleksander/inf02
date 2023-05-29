@@ -373,6 +373,38 @@ Przed nauką konfiguracji serwera DNS warto nauczyć się teorii, zestaw fiszek 
 
 # SSH - Secure Shell
 
+## Informacje o usłudze
+
+- ** Plik konfiguracyjny:** /etc/ssh/sshd_config
+
+## Manualne włączanie
+
+1. **Zainstalowanie pakietu OpenSSH**
+
+<pre>
+sudo zypper install openssh
+</pre>
+
+2. **Uruchomienie usługi SSH**
+ 
+<pre>
+sudo systemctl start sshd
+sudo systemctl enable sshd
+</pre>
+
+4. **Sprawdź stan usługi**
+
+<pre>
+sudo systemctl status sshd
+</pre>
+
+5. **Otwarcie portu w zaporze sieciowej** - TCP 22
+   
+<pre>
+sudo firewall-cmd --permament --add-service=ssh
+sudo firewall-cmd --reload
+</pre>
+
 ## Kopiowanie plików
 
 ### Polecenie scp

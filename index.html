@@ -86,12 +86,14 @@
 </ul></li>
 <li><a href="#ssh---secure-shell"><span class="toc-section-number">3</span> SSH - Secure Shell</a>
 <ul>
-<li><a href="#kopiowanie-plików"><span class="toc-section-number">3.1</span> Kopiowanie plików</a>
+<li><a href="#informacje-o-usłudze-2"><span class="toc-section-number">3.1</span> Informacje o usłudze</a></li>
+<li><a href="#manualne-włączanie"><span class="toc-section-number">3.2</span> Manualne włączanie</a></li>
+<li><a href="#kopiowanie-plików"><span class="toc-section-number">3.3</span> Kopiowanie plików</a>
 <ul>
-<li><a href="#polecenie-scp"><span class="toc-section-number">3.1.1</span> Polecenie scp</a></li>
-<li><a href="#połączenie-przez-sftp"><span class="toc-section-number">3.1.2</span> Połączenie przez sftp</a></li>
+<li><a href="#polecenie-scp"><span class="toc-section-number">3.3.1</span> Polecenie scp</a></li>
+<li><a href="#połączenie-przez-sftp"><span class="toc-section-number">3.3.2</span> Połączenie przez sftp</a></li>
 </ul></li>
-<li><a href="#źródła-i-ciekawe-artykuły"><span class="toc-section-number">3.2</span> Źródła i ciekawe artykuły</a></li>
+<li><a href="#źródła-i-ciekawe-artykuły"><span class="toc-section-number">3.4</span> Źródła i ciekawe artykuły</a></li>
 </ul></li>
 <li><a href="#egzamin-próbny"><span class="toc-section-number">4</span> Egzamin próbny</a>
 <ul>
@@ -484,11 +486,42 @@
 <li><strong> Link do dokumentacji:</strong> <a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-dhcp.html">kliknij tutaj</a></li>
 </ul>
 <h1 data-number="3" id="ssh---secure-shell"><span class="header-section-number">3</span> SSH - Secure Shell</h1>
-<h2 data-number="3.1" id="kopiowanie-plików"><span class="header-section-number">3.1</span> Kopiowanie plików</h2>
-<h3 data-number="3.1.1" id="polecenie-scp"><span class="header-section-number">3.1.1</span> Polecenie scp</h3>
+<h2 data-number="3.1" id="informacje-o-usłudze-2"><span class="header-section-number">3.1</span> Informacje o usłudze</h2>
+<ul>
+<li><strong> Plik konfiguracyjny:</strong> /etc/ssh/sshd_config</li>
+</ul>
+<h2 data-number="3.2" id="manualne-włączanie"><span class="header-section-number">3.2</span> Manualne włączanie</h2>
+<ol type="1">
+<li><strong>Zainstalowanie pakietu OpenSSH</strong></li>
+</ol>
+<pre>
+sudo zypper install openssh
+</pre>
+<ol start="2" type="1">
+<li><strong>Uruchomienie usługi SSH</strong></li>
+</ol>
+<pre>
+sudo systemctl start sshd
+sudo systemctl enable sshd
+</pre>
+<ol start="4" type="1">
+<li><strong>Sprawdź stan usługi</strong></li>
+</ol>
+<pre>
+sudo systemctl status sshd
+</pre>
+<ol start="5" type="1">
+<li><strong>Otwarcie portu w zaporze sieciowej</strong> - TCP 22</li>
+</ol>
+<pre>
+sudo firewall-cmd --permament --add-service=ssh
+sudo firewall-cmd --reload
+</pre>
+<h2 data-number="3.3" id="kopiowanie-plików"><span class="header-section-number">3.3</span> Kopiowanie plików</h2>
+<h3 data-number="3.3.1" id="polecenie-scp"><span class="header-section-number">3.3.1</span> Polecenie scp</h3>
 <p>Do kopiowania plików z serwera SSH i SFTP służy polecenie <strong>scp</strong>.</p>
 <p>Pamiętaj, że po połączeniu się z <strong>ssh lądujemy w katalogu użytkownika</strong> (np. /home/admin).</p>
-<h4 data-number="3.1.1.1" id="format-komendy"><span class="header-section-number">3.1.1.1</span> Format komendy</h4>
+<h4 data-number="3.3.1.1" id="format-komendy"><span class="header-section-number">3.3.1.1</span> Format komendy</h4>
 <p><strong>  <span style="opacity:0">_</span>Pobieranie z serwera:</strong></p>
 <pre><code>scp [-r] uzytkownik@adres_serwera:plik_zrodlowy plik_docelowy</code></pre>
 <p>Przykład: <a href="#przyklad-1.">kliknij tutaj</a></p>
@@ -502,12 +535,12 @@
 <p><strong>  <span style="opacity:0">_</span>Przykład 2.</strong></p>
 <pre><code>scp test admin@10.0.0.1:test2</code></pre>
 <p>Wysyłamy <strong>plik test</strong> z klienta do <strong>pliku test2</strong> na serwerze. <img src="img/SSH/3.png" alt="Klient" /> <img src="img/SSH/4.png" alt="Serwer" /></p>
-<h3 data-number="3.1.2" id="połączenie-przez-sftp"><span class="header-section-number">3.1.2</span> Połączenie przez sftp</h3>
+<h3 data-number="3.3.2" id="połączenie-przez-sftp"><span class="header-section-number">3.3.2</span> Połączenie przez sftp</h3>
 <p>Oprócz <a href="#polecenie-scp">scp</a> możemy połączyć się przez <strong>SFTP - Secure File Transfer Protocol (TCP 22)</strong>. Wtedy obowiązują nas komendy tj. w zwykłym ftp, czyli <strong>get</strong> (pobieranie z serwera) lub <strong>put</strong> (wysyłanie do serwera).</p>
 <figure>
 <img src="img/SSH/5.png" alt="" /><figcaption>Przykład</figcaption>
 </figure>
-<h2 data-number="3.2" id="źródła-i-ciekawe-artykuły"><span class="header-section-number">3.2</span> Źródła i ciekawe artykuły</h2>
+<h2 data-number="3.4" id="źródła-i-ciekawe-artykuły"><span class="header-section-number">3.4</span> Źródła i ciekawe artykuły</h2>
 <ul>
 <li><a href="https://kinsta.com/knowledgebase/ssh-vs-ssl/">SSH vs SSL</a></li>
 <li><a href="http://www.is.umk.pl/~grochu/unix/unix-2020/S10.html">Polecenia unix’a</a></li>
