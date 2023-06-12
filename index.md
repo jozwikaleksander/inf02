@@ -3,6 +3,88 @@ title: INF02
 author:  <span style="opacity:0">__</span>Aleksander Jóźwik - [zobacz moją stronę  ](https://aleksanderjozwik.com/)
 ...
 <main>
+
+# Windows 10/Server 2016
+
+## Udostępnianie katalogu
+
+Aby udostępnić zasób w wierszu poleceń służy polecenie *net share*. Dokładny opis komendy [znajdziesz tutaj](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh750728(v=ws.11)).
+
+**Podstawowa struktura polecenia:**
+
+    net share nazwa_zasobu=dysk:ścieżka
+
+**Dla przypomnienia** format w jakim możemy odnieść się do jakieś zasobu to tzw. **ścieżka UNC**, czyli *\\nazwa_komputera\nazwa_zasobu*. Więcej o tym [tutaj](https://www.lifewire.com/unc-universal-naming-convention-818230).
+
+### Podstawowe udostępnianie
+![](img/Windows/Sharing/1.png)
+
+Aby teraz wyświetlić listę zasobów korzystamy z *net share*.
+
+![](img/Windows/Sharing/2.png)
+
+Jak widać zasób "Pliki" pojawił się na liście.
+
+### Sprawdzanie szczegółów zasobu
+
+![](img/Windows/Sharing/13.png)
+Do tego również służy komenda **net share *nazwa_zasobu***.
+
+### Określanie uprawnień przy udostępnianiu zasobu
+
+![](img/Windows/Sharing/3.png)
+
+Aby udostępnić zasób jakiemuś użytkownikami korzystamy z przełącznika **/grant:nazwa_użytkownika, READ|WRITE|FULL**.
+
+**READ** - odczyt
+**WRITE** - zapis
+**FULL** - pełna kontrola
+
+### Usuwanie zasobów
+
+![](img/Windows/Sharing/4.png)
+
+Aby usunąć zasób korzystamy z przełącznika **/DELETE**.
+
+### Określenie ilości użytkowników którzy mogą korzystać z zasobu w jednym momencie
+
+Aby to zrobić korzystamy z **/USERS:liczba** lub **/UNLIMITED** (czyli nieograniczona).
+
+![](img/Windows/Sharing/5.png)
+
+![](img/Windows/Sharing/6.png)
+
+### Dodawanie opisu
+
+Przełącznik **/REMARK:"treść"**.
+
+![](img/Windows/Sharing/7.png)
+
+Jak widać opis został dodany.
+
+![](img/Windows/Sharing/8.png)
+
+### Przykład
+
+Teraz połączymy wszystko w całość i udostępnimy nowy zasób.
+
+![Zaczynam od utworzenia katalogu](img/Windows/Sharing/9.png)
+
+![Następnie udostępniam zasób](img/Windows/Sharing/10.png)
+
+![Sprawdzam szczegóły zasobu](img/Windows/Sharing/11.png)
+
+## Zmiana właściciela i uprawnień pliku
+Do zmiany właściciela pliku lub katalogu służy komenda **icacls**.
+Pamiętaj, że wszystkie opcje znajdziesz stosując **icacls /?**.
+
+### Zmiana właściciela
+W tym celu stosujemy przełacznik **/setowner**.
+![](img/Windows/Owner/1.png)
+
+Teraz wystarczy sprawdzić czy komenda zadziałała, stosując **dir /Q**.
+![](img/Windows/Owner/2.png)
+
 # Diagnostyka systemu Linux
 
 Zobacz [ podsumowanie](#podsumowanie).

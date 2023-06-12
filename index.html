@@ -26,97 +26,159 @@
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#diagnostyka-systemu-linux"><span class="toc-section-number">1</span> Diagnostyka systemu Linux</a>
+<li><a href="#windows-10server-2016"><span class="toc-section-number">1</span> Windows 10/Server 2016</a>
 <ul>
-<li><a href="#lsblk"><span class="toc-section-number">1.1</span> lsblk</a>
+<li><a href="#udostępnianie-katalogu"><span class="toc-section-number">1.1</span> Udostępnianie katalogu</a>
 <ul>
-<li><a href="#najważniejsze-kolumny"><span class="toc-section-number">1.1.1</span> Najważniejsze kolumny</a></li>
+<li><a href="#podstawowe-udostępnianie"><span class="toc-section-number">1.1.1</span> Podstawowe udostępnianie</a></li>
+<li><a href="#sprawdzanie-szczegółów-zasobu"><span class="toc-section-number">1.1.2</span> Sprawdzanie szczegółów zasobu</a></li>
+<li><a href="#określanie-uprawnień-przy-udostępnianiu-zasobu"><span class="toc-section-number">1.1.3</span> Określanie uprawnień przy udostępnianiu zasobu</a></li>
+<li><a href="#usuwanie-zasobów"><span class="toc-section-number">1.1.4</span> Usuwanie zasobów</a></li>
+<li><a href="#określenie-ilości-użytkowników-którzy-mogą-korzystać-z-zasobu-w-jednym-momencie"><span class="toc-section-number">1.1.5</span> Określenie ilości użytkowników którzy mogą korzystać z zasobu w jednym momencie</a></li>
+<li><a href="#dodawanie-opisu"><span class="toc-section-number">1.1.6</span> Dodawanie opisu</a></li>
+<li><a href="#przykład"><span class="toc-section-number">1.1.7</span> Przykład</a></li>
 </ul></li>
-<li><a href="#lscpu"><span class="toc-section-number">1.2</span> lscpu</a></li>
-<li><a href="#lspci"><span class="toc-section-number">1.3</span> lspci</a>
+<li><a href="#zmiana-właściciela-i-uprawnień-pliku"><span class="toc-section-number">1.2</span> Zmiana właściciela i uprawnień pliku</a>
 <ul>
-<li><a href="#karta-graficzna"><span class="toc-section-number">1.3.1</span> Karta graficzna</a></li>
-<li><a href="#karta-sieciowa"><span class="toc-section-number">1.3.2</span> Karta sieciowa</a></li>
+<li><a href="#zmiana-właściciela"><span class="toc-section-number">1.2.1</span> Zmiana właściciela</a></li>
 </ul></li>
-<li><a href="#plik-etcos-release"><span class="toc-section-number">1.4</span> Plik /etc/os-release</a></li>
-<li><a href="#uname"><span class="toc-section-number">1.5</span> uname</a>
+</ul></li>
+<li><a href="#diagnostyka-systemu-linux"><span class="toc-section-number">2</span> Diagnostyka systemu Linux</a>
 <ul>
-<li><a href="#wersja-jądra"><span class="toc-section-number">1.5.1</span> Wersja jądra</a></li>
-<li><a href="#architektura"><span class="toc-section-number">1.5.2</span> Architektura</a></li>
-</ul></li>
-<li><a href="#dmidecode"><span class="toc-section-number">1.6</span> dmidecode</a>
+<li><a href="#lsblk"><span class="toc-section-number">2.1</span> lsblk</a>
 <ul>
-<li><a href="#pamięć-ram"><span class="toc-section-number">1.6.1</span> Pamięć RAM</a></li>
-<li><a href="#płyta-główna"><span class="toc-section-number">1.6.2</span> Płyta główna</a></li>
+<li><a href="#najważniejsze-kolumny"><span class="toc-section-number">2.1.1</span> Najważniejsze kolumny</a></li>
 </ul></li>
-<li><a href="#top"><span class="toc-section-number">1.7</span> top</a></li>
-<li><a href="#du"><span class="toc-section-number">1.8</span> du</a>
+<li><a href="#lscpu"><span class="toc-section-number">2.2</span> lscpu</a></li>
+<li><a href="#lspci"><span class="toc-section-number">2.3</span> lspci</a>
 <ul>
-<li><a href="#rozmiar-katalogu-etc"><span class="toc-section-number">1.8.1</span> Rozmiar katalogu /etc</a></li>
-<li><a href="#rozmiar-katalogu-var"><span class="toc-section-number">1.8.2</span> Rozmiar katalogu /var</a></li>
+<li><a href="#karta-graficzna"><span class="toc-section-number">2.3.1</span> Karta graficzna</a></li>
+<li><a href="#karta-sieciowa"><span class="toc-section-number">2.3.2</span> Karta sieciowa</a></li>
 </ul></li>
-<li><a href="#hostname"><span class="toc-section-number">1.9</span> hostname</a></li>
-<li><a href="#plik-etcpasswd"><span class="toc-section-number">1.10</span> Plik /etc/passwd</a></li>
-<li><a href="#id"><span class="toc-section-number">1.11</span> id</a></li>
-<li><a href="#lshw"><span class="toc-section-number">1.12</span> lshw</a></li>
-<li><a href="#podsumowanie"><span class="toc-section-number">1.13</span> Podsumowanie</a></li>
-</ul></li>
-<li><a href="#konfiguracja-serwera-tekstowego-open-suse-42.3"><span class="toc-section-number">2</span> Konfiguracja serwera tekstowego Open Suse 42.3</a>
+<li><a href="#plik-etcos-release"><span class="toc-section-number">2.4</span> Plik /etc/os-release</a></li>
+<li><a href="#uname"><span class="toc-section-number">2.5</span> uname</a>
 <ul>
-<li><a href="#konfiguracja-interfejsów"><span class="toc-section-number">2.1</span> Konfiguracja interfejsów</a>
-<ul>
-<li><a href="#dodanie-bramy-domyślnej"><span class="toc-section-number">2.1.1</span> Dodanie bramy domyślnej</a></li>
-<li><a href="#zmiana-nazwy-serwera"><span class="toc-section-number">2.1.2</span> Zmiana nazwy serwera</a></li>
-<li><a href="#wyłączenie-interfejsu"><span class="toc-section-number">2.1.3</span> Wyłączenie interfejsu</a></li>
+<li><a href="#wersja-jądra"><span class="toc-section-number">2.5.1</span> Wersja jądra</a></li>
+<li><a href="#architektura"><span class="toc-section-number">2.5.2</span> Architektura</a></li>
 </ul></li>
-<li><a href="#serwer-http"><span class="toc-section-number">2.2</span> Serwer HTTP</a></li>
-<li><a href="#serwer-ftp"><span class="toc-section-number">2.3</span> Serwer FTP</a>
+<li><a href="#dmidecode"><span class="toc-section-number">2.6</span> dmidecode</a>
 <ul>
-<li><a href="#informacje-o-usłudze"><span class="toc-section-number">2.3.1</span> Informacje o usłudze</a></li>
-<li><a href="#przypomnienie"><span class="toc-section-number">2.3.2</span> Przypomnienie</a></li>
-<li><a href="#konfiguracja-serwera"><span class="toc-section-number">2.3.3</span> Konfiguracja serwera</a></li>
+<li><a href="#pamięć-ram"><span class="toc-section-number">2.6.1</span> Pamięć RAM</a></li>
+<li><a href="#płyta-główna"><span class="toc-section-number">2.6.2</span> Płyta główna</a></li>
 </ul></li>
-<li><a href="#serwer-dns"><span class="toc-section-number">2.4</span> Serwer DNS</a>
+<li><a href="#top"><span class="toc-section-number">2.7</span> top</a></li>
+<li><a href="#du"><span class="toc-section-number">2.8</span> du</a>
 <ul>
-<li><a href="#informacje-o-usłudze-1"><span class="toc-section-number">2.4.1</span> Informacje o usłudze</a></li>
-<li><a href="#konfiguracja-serwera-1"><span class="toc-section-number">2.4.2</span> Konfiguracja serwera</a></li>
-<li><a href="#testowanie-serwera"><span class="toc-section-number">2.4.3</span> Testowanie serwera</a></li>
+<li><a href="#rozmiar-katalogu-etc"><span class="toc-section-number">2.8.1</span> Rozmiar katalogu /etc</a></li>
+<li><a href="#rozmiar-katalogu-var"><span class="toc-section-number">2.8.2</span> Rozmiar katalogu /var</a></li>
 </ul></li>
-<li><a href="#serwer-dhcp"><span class="toc-section-number">2.5</span> Serwer DHCP</a></li>
+<li><a href="#hostname"><span class="toc-section-number">2.9</span> hostname</a></li>
+<li><a href="#plik-etcpasswd"><span class="toc-section-number">2.10</span> Plik /etc/passwd</a></li>
+<li><a href="#id"><span class="toc-section-number">2.11</span> id</a></li>
+<li><a href="#lshw"><span class="toc-section-number">2.12</span> lshw</a></li>
+<li><a href="#podsumowanie"><span class="toc-section-number">2.13</span> Podsumowanie</a></li>
 </ul></li>
-<li><a href="#ssh---secure-shell"><span class="toc-section-number">3</span> SSH - Secure Shell</a>
+<li><a href="#konfiguracja-serwera-tekstowego-open-suse-42.3"><span class="toc-section-number">3</span> Konfiguracja serwera tekstowego Open Suse 42.3</a>
 <ul>
-<li><a href="#informacje-o-usłudze-2"><span class="toc-section-number">3.1</span> Informacje o usłudze</a></li>
-<li><a href="#manualne-włączanie"><span class="toc-section-number">3.2</span> Manualne włączanie</a></li>
-<li><a href="#kopiowanie-plików"><span class="toc-section-number">3.3</span> Kopiowanie plików</a>
+<li><a href="#konfiguracja-interfejsów"><span class="toc-section-number">3.1</span> Konfiguracja interfejsów</a>
 <ul>
-<li><a href="#polecenie-scp"><span class="toc-section-number">3.3.1</span> Polecenie scp</a></li>
-<li><a href="#połączenie-przez-sftp"><span class="toc-section-number">3.3.2</span> Połączenie przez sftp</a></li>
+<li><a href="#dodanie-bramy-domyślnej"><span class="toc-section-number">3.1.1</span> Dodanie bramy domyślnej</a></li>
+<li><a href="#zmiana-nazwy-serwera"><span class="toc-section-number">3.1.2</span> Zmiana nazwy serwera</a></li>
+<li><a href="#wyłączenie-interfejsu"><span class="toc-section-number">3.1.3</span> Wyłączenie interfejsu</a></li>
 </ul></li>
-<li><a href="#źródła-i-ciekawe-artykuły"><span class="toc-section-number">3.4</span> Źródła i ciekawe artykuły</a></li>
-</ul></li>
-<li><a href="#egzamin-próbny"><span class="toc-section-number">4</span> Egzamin próbny</a>
+<li><a href="#serwer-http"><span class="toc-section-number">3.2</span> Serwer HTTP</a></li>
+<li><a href="#serwer-ftp"><span class="toc-section-number">3.3</span> Serwer FTP</a>
 <ul>
-<li><a href="#treść-zadania"><span class="toc-section-number">4.1</span> Treść zadania</a></li>
-<li><a href="#konfiguracja-routera"><span class="toc-section-number">4.2</span> Konfiguracja router’a</a></li>
-<li><a href="#konfiguracja-przełącznika"><span class="toc-section-number">4.3</span> Konfiguracja przełącznika</a></li>
-<li><a href="#konfiguracja-komputerów"><span class="toc-section-number">4.4</span> Konfiguracja komputerów</a>
-<ul>
-<li><a href="#konfiguracja-serwera-2"><span class="toc-section-number">4.4.1</span> Konfiguracja serwera</a></li>
-<li><a href="#konfiguracja-klienta"><span class="toc-section-number">4.4.2</span> Konfiguracja klienta</a></li>
+<li><a href="#informacje-o-usłudze"><span class="toc-section-number">3.3.1</span> Informacje o usłudze</a></li>
+<li><a href="#przypomnienie"><span class="toc-section-number">3.3.2</span> Przypomnienie</a></li>
+<li><a href="#konfiguracja-serwera"><span class="toc-section-number">3.3.3</span> Konfiguracja serwera</a></li>
 </ul></li>
-<li><a href="#testowanie-połączeń"><span class="toc-section-number">4.5</span> Testowanie połączeń</a></li>
-<li><a href="#konfiguracja-serwera-http"><span class="toc-section-number">4.6</span> Konfiguracja serwera HTTP</a></li>
+<li><a href="#serwer-dns"><span class="toc-section-number">3.4</span> Serwer DNS</a>
+<ul>
+<li><a href="#informacje-o-usłudze-1"><span class="toc-section-number">3.4.1</span> Informacje o usłudze</a></li>
+<li><a href="#konfiguracja-serwera-1"><span class="toc-section-number">3.4.2</span> Konfiguracja serwera</a></li>
+<li><a href="#testowanie-serwera"><span class="toc-section-number">3.4.3</span> Testowanie serwera</a></li>
+</ul></li>
+<li><a href="#serwer-dhcp"><span class="toc-section-number">3.5</span> Serwer DHCP</a></li>
+</ul></li>
+<li><a href="#ssh---secure-shell"><span class="toc-section-number">4</span> SSH - Secure Shell</a>
+<ul>
+<li><a href="#informacje-o-usłudze-2"><span class="toc-section-number">4.1</span> Informacje o usłudze</a></li>
+<li><a href="#manualne-włączanie"><span class="toc-section-number">4.2</span> Manualne włączanie</a></li>
+<li><a href="#kopiowanie-plików"><span class="toc-section-number">4.3</span> Kopiowanie plików</a>
+<ul>
+<li><a href="#polecenie-scp"><span class="toc-section-number">4.3.1</span> Polecenie scp</a></li>
+<li><a href="#połączenie-przez-sftp"><span class="toc-section-number">4.3.2</span> Połączenie przez sftp</a></li>
+</ul></li>
+<li><a href="#źródła-i-ciekawe-artykuły"><span class="toc-section-number">4.4</span> Źródła i ciekawe artykuły</a></li>
+</ul></li>
+<li><a href="#egzamin-próbny"><span class="toc-section-number">5</span> Egzamin próbny</a>
+<ul>
+<li><a href="#treść-zadania"><span class="toc-section-number">5.1</span> Treść zadania</a></li>
+<li><a href="#konfiguracja-routera"><span class="toc-section-number">5.2</span> Konfiguracja router’a</a></li>
+<li><a href="#konfiguracja-przełącznika"><span class="toc-section-number">5.3</span> Konfiguracja przełącznika</a></li>
+<li><a href="#konfiguracja-komputerów"><span class="toc-section-number">5.4</span> Konfiguracja komputerów</a>
+<ul>
+<li><a href="#konfiguracja-serwera-2"><span class="toc-section-number">5.4.1</span> Konfiguracja serwera</a></li>
+<li><a href="#konfiguracja-klienta"><span class="toc-section-number">5.4.2</span> Konfiguracja klienta</a></li>
+</ul></li>
+<li><a href="#testowanie-połączeń"><span class="toc-section-number">5.5</span> Testowanie połączeń</a></li>
+<li><a href="#konfiguracja-serwera-http"><span class="toc-section-number">5.6</span> Konfiguracja serwera HTTP</a></li>
 </ul></li>
 </ul>
 </nav>
 <main>
-<h1 data-number="1" id="diagnostyka-systemu-linux"><span class="header-section-number">1</span> Diagnostyka systemu Linux</h1>
+<h1 data-number="1" id="windows-10server-2016"><span class="header-section-number">1</span> Windows 10/Server 2016</h1>
+<h2 data-number="1.1" id="udostępnianie-katalogu"><span class="header-section-number">1.1</span> Udostępnianie katalogu</h2>
+<p>Aby udostępnić zasób w wierszu poleceń służy polecenie <em>net share</em>. Dokładny opis komendy <a href="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh750728(v=ws.11)">znajdziesz tutaj</a>.</p>
+<p><strong>Podstawowa struktura polecenia:</strong></p>
+<pre><code>net share nazwa_zasobu=dysk:ścieżka</code></pre>
+<p><strong>Dla przypomnienia</strong> format w jakim możemy odnieść się do jakieś zasobu to tzw. <strong>ścieżka UNC</strong>, czyli *\nazwa_komputera_zasobu*. Więcej o tym <a href="https://www.lifewire.com/unc-universal-naming-convention-818230">tutaj</a>.</p>
+<h3 data-number="1.1.1" id="podstawowe-udostępnianie"><span class="header-section-number">1.1.1</span> Podstawowe udostępnianie</h3>
+<p><img src="img/Windows/Sharing/1.png" /></p>
+<p>Aby teraz wyświetlić listę zasobów korzystamy z <em>net share</em>.</p>
+<p><img src="img/Windows/Sharing/2.png" /></p>
+<p>Jak widać zasób “Pliki” pojawił się na liście.</p>
+<h3 data-number="1.1.2" id="sprawdzanie-szczegółów-zasobu"><span class="header-section-number">1.1.2</span> Sprawdzanie szczegółów zasobu</h3>
+<p><img src="img/Windows/Sharing/13.png" /> Do tego również służy komenda <strong>net share <em>nazwa_zasobu</em></strong>.</p>
+<h3 data-number="1.1.3" id="określanie-uprawnień-przy-udostępnianiu-zasobu"><span class="header-section-number">1.1.3</span> Określanie uprawnień przy udostępnianiu zasobu</h3>
+<p><img src="img/Windows/Sharing/3.png" /></p>
+<p>Aby udostępnić zasób jakiemuś użytkownikami korzystamy z przełącznika <strong>/grant:nazwa_użytkownika, READ|WRITE|FULL</strong>.</p>
+<p><strong>READ</strong> - odczyt <strong>WRITE</strong> - zapis <strong>FULL</strong> - pełna kontrola</p>
+<h3 data-number="1.1.4" id="usuwanie-zasobów"><span class="header-section-number">1.1.4</span> Usuwanie zasobów</h3>
+<p><img src="img/Windows/Sharing/4.png" /></p>
+<p>Aby usunąć zasób korzystamy z przełącznika <strong>/DELETE</strong>.</p>
+<h3 data-number="1.1.5" id="określenie-ilości-użytkowników-którzy-mogą-korzystać-z-zasobu-w-jednym-momencie"><span class="header-section-number">1.1.5</span> Określenie ilości użytkowników którzy mogą korzystać z zasobu w jednym momencie</h3>
+<p>Aby to zrobić korzystamy z <strong>/USERS:liczba</strong> lub <strong>/UNLIMITED</strong> (czyli nieograniczona).</p>
+<p><img src="img/Windows/Sharing/5.png" /></p>
+<p><img src="img/Windows/Sharing/6.png" /></p>
+<h3 data-number="1.1.6" id="dodawanie-opisu"><span class="header-section-number">1.1.6</span> Dodawanie opisu</h3>
+<p>Przełącznik <strong>/REMARK:“treść”</strong>.</p>
+<p><img src="img/Windows/Sharing/7.png" /></p>
+<p>Jak widać opis został dodany.</p>
+<p><img src="img/Windows/Sharing/8.png" /></p>
+<h3 data-number="1.1.7" id="przykład"><span class="header-section-number">1.1.7</span> Przykład</h3>
+<p>Teraz połączymy wszystko w całość i udostępnimy nowy zasób.</p>
+<figure>
+<img src="img/Windows/Sharing/9.png" alt="" /><figcaption>Zaczynam od utworzenia katalogu</figcaption>
+</figure>
+<figure>
+<img src="img/Windows/Sharing/10.png" alt="" /><figcaption>Następnie udostępniam zasób</figcaption>
+</figure>
+<figure>
+<img src="img/Windows/Sharing/11.png" alt="" /><figcaption>Sprawdzam szczegóły zasobu</figcaption>
+</figure>
+<h2 data-number="1.2" id="zmiana-właściciela-i-uprawnień-pliku"><span class="header-section-number">1.2</span> Zmiana właściciela i uprawnień pliku</h2>
+<p>Do zmiany właściciela pliku lub katalogu służy komenda <strong>icacls</strong>. Pamiętaj, że wszystkie opcje znajdziesz stosując <strong>icacls /?</strong>.</p>
+<h3 data-number="1.2.1" id="zmiana-właściciela"><span class="header-section-number">1.2.1</span> Zmiana właściciela</h3>
+<p>W tym celu stosujemy przełacznik <strong>/setowner</strong>. <img src="img/Windows/Owner/1.png" /></p>
+<p>Teraz wystarczy sprawdzić czy komenda zadziałała, stosując <strong>dir /Q</strong>. <img src="img/Windows/Owner/2.png" /></p>
+<h1 data-number="2" id="diagnostyka-systemu-linux"><span class="header-section-number">2</span> Diagnostyka systemu Linux</h1>
 <p>Zobacz <a href="#podsumowanie"> podsumowanie</a>.</p>
 <p>Oprócz poleceń warto rozumieć 📁 <strong>strukturę systemu plików Linux’a</strong>. Fiszki programu Anki dotyczące folderów znajdziesz tutaj: <a href="https://www.github.com/jozwikaleksander/inf02/flashcards/Linux%20File%20System%20Structure.apkg">kliknij tutaj</a></p>
-<h2 data-number="1.1" id="lsblk"><span class="header-section-number">1.1</span> lsblk</h2>
+<h2 data-number="2.1" id="lsblk"><span class="header-section-number">2.1</span> lsblk</h2>
 <p>Podaje informacje na <strong>temat  dysku twardego</strong>. Aby wyświetlić konkretne informacje skorzystaj z <strong>przełącznika -o</strong> i podaj nazwy kolumn.</p>
-<h3 data-number="1.1.1" id="najważniejsze-kolumny"><span class="header-section-number">1.1.1</span> Najważniejsze kolumny</h3>
+<h3 data-number="2.1.1" id="najważniejsze-kolumny"><span class="header-section-number">2.1.1</span> Najważniejsze kolumny</h3>
 <ul>
 <li><strong>NAME</strong> - nazwa urządzenia</li>
 <li><strong>FSTYPE</strong> - system plików</li>
@@ -128,7 +190,7 @@
 <figure>
 <img src="img/1.1.png" alt="" /><figcaption>Polecenie lsblk</figcaption>
 </figure>
-<h2 data-number="1.2" id="lscpu"><span class="header-section-number">1.2</span> lscpu</h2>
+<h2 data-number="2.2" id="lscpu"><span class="header-section-number">2.2</span> lscpu</h2>
 <p>Podaje informacje o <strong> procesorze</strong>.</p>
 <p><strong>Niektóre z informacji które możemy znaleźć:</strong></p>
 <ul>
@@ -142,48 +204,48 @@
 <figure>
 <img src="img/1.2.png" alt="" /><figcaption>Polecenie lscpu</figcaption>
 </figure>
-<h2 data-number="1.3" id="lspci"><span class="header-section-number">1.3</span> lspci</h2>
+<h2 data-number="2.3" id="lspci"><span class="header-section-number">2.3</span> lspci</h2>
 <p>Wyświetla urządzenia PCI w tym <strong> kartę graficzną</strong> i <strong> kartę sieciową</strong>.</p>
-<h3 data-number="1.3.1" id="karta-graficzna"><span class="header-section-number">1.3.1</span> Karta graficzna</h3>
+<h3 data-number="2.3.1" id="karta-graficzna"><span class="header-section-number">2.3.1</span> Karta graficzna</h3>
 <figure>
 <img src="img/1.3.png" alt="" /><figcaption>Polecenie lspci</figcaption>
 </figure>
 <p><strong>Użyta komenda:</strong> lspci -v | more</p>
-<h3 data-number="1.3.2" id="karta-sieciowa"><span class="header-section-number">1.3.2</span> Karta sieciowa</h3>
+<h3 data-number="2.3.2" id="karta-sieciowa"><span class="header-section-number">2.3.2</span> Karta sieciowa</h3>
 <figure>
 <img src="img/1.3.2.png" alt="" /><figcaption>Polecenie lspci</figcaption>
 </figure>
 <p><strong>Użyta komenda:</strong> lspci -v | more</p>
-<h2 data-number="1.4" id="plik-etcos-release"><span class="header-section-number">1.4</span> Plik /etc/os-release</h2>
+<h2 data-number="2.4" id="plik-etcos-release"><span class="header-section-number">2.4</span> Plik /etc/os-release</h2>
 <p>Podaje <strong>nazwę</strong> i <strong>wersje systemu operacyjnego</strong>.</p>
 <p><strong>Przykład</strong></p>
 <figure>
 <img src="img/1.4.png" alt="" /><figcaption>Plik /etc/os-release</figcaption>
 </figure>
 <p>Aby wyświetlić zawartość pliku korzystam z polecenia <strong>cat</strong>.</p>
-<h2 data-number="1.5" id="uname"><span class="header-section-number">1.5</span> uname</h2>
+<h2 data-number="2.5" id="uname"><span class="header-section-number">2.5</span> uname</h2>
 <p>Podaje m.in. <strong> wersję jądra (przełącznik -r)</strong> i <strong> architekturę (przełacznik -p)</strong>.</p>
-<h3 data-number="1.5.1" id="wersja-jądra"><span class="header-section-number">1.5.1</span> Wersja jądra</h3>
+<h3 data-number="2.5.1" id="wersja-jądra"><span class="header-section-number">2.5.1</span> Wersja jądra</h3>
 <figure>
 <img src="img/1.5.1.png" alt="" /><figcaption>uname -r</figcaption>
 </figure>
-<h3 data-number="1.5.2" id="architektura"><span class="header-section-number">1.5.2</span> Architektura</h3>
+<h3 data-number="2.5.2" id="architektura"><span class="header-section-number">2.5.2</span> Architektura</h3>
 <figure>
 <img src="img/1.5.2.png" alt="" /><figcaption>uname -p</figcaption>
 </figure>
-<h2 data-number="1.6" id="dmidecode"><span class="header-section-number">1.6</span> dmidecode</h2>
+<h2 data-number="2.6" id="dmidecode"><span class="header-section-number">2.6</span> dmidecode</h2>
 <p>Dostarcza informacji na temat m.in. <strong>pamięci RAM, procesorze, płycie głównej</strong>. Aby wybrać konkretne urządzenie skorzystaj z przełącznika <strong>-t</strong>.</p>
-<h3 data-number="1.6.1" id="pamięć-ram"><span class="header-section-number">1.6.1</span> Pamięć RAM</h3>
+<h3 data-number="2.6.1" id="pamięć-ram"><span class="header-section-number">2.6.1</span> Pamięć RAM</h3>
 <figure>
 <img src="img/1.6.1.png" alt="" /><figcaption>dmidecode -t memory</figcaption>
 </figure>
 <p><strong>Użyta komenda:</strong> dmidecode -t memory</p>
-<h3 data-number="1.6.2" id="płyta-główna"><span class="header-section-number">1.6.2</span> Płyta główna</h3>
+<h3 data-number="2.6.2" id="płyta-główna"><span class="header-section-number">2.6.2</span> Płyta główna</h3>
 <figure>
 <img src="img/1.6.2.png" alt="" /><figcaption>dmidecode -t baseboard</figcaption>
 </figure>
 <p><strong>Użyta komenda:</strong> dmidecode -t baseboard</p>
-<h2 data-number="1.7" id="top"><span class="header-section-number">1.7</span> top</h2>
+<h2 data-number="2.7" id="top"><span class="header-section-number">2.7</span> top</h2>
 <p>Wyświetla <strong>procesy</strong> oraz <strong>informacje o zasobach komputera</strong>.</p>
 <p><strong>Przykład</strong> <img src="img/1.7.1.png" alt="top" /></p>
 <p><strong>Informacje które możemy odczytać to między innymi:</strong></p>
@@ -193,24 +255,24 @@
 <li>ilość wolnej pamięci RAM</li>
 <li>ilość używanej pamięci RAM</li>
 </ul>
-<h2 data-number="1.8" id="du"><span class="header-section-number">1.8</span> du</h2>
+<h2 data-number="2.8" id="du"><span class="header-section-number">2.8</span> du</h2>
 <p>Wyświetla rozmiar katalogu. Aby wygodnie wyświetlić wyniki skorzystaj z przełączników <strong>-h</strong> i <strong>-s</strong>.</p>
-<h3 data-number="1.8.1" id="rozmiar-katalogu-etc"><span class="header-section-number">1.8.1</span> Rozmiar katalogu /etc</h3>
+<h3 data-number="2.8.1" id="rozmiar-katalogu-etc"><span class="header-section-number">2.8.1</span> Rozmiar katalogu /etc</h3>
 <figure>
 <img src="img/1.8.1.png" alt="" /><figcaption>du -sh /etc</figcaption>
 </figure>
 <p><strong>Użyta komenda:</strong> du -sh /etc</p>
-<h3 data-number="1.8.2" id="rozmiar-katalogu-var"><span class="header-section-number">1.8.2</span> Rozmiar katalogu /var</h3>
+<h3 data-number="2.8.2" id="rozmiar-katalogu-var"><span class="header-section-number">2.8.2</span> Rozmiar katalogu /var</h3>
 <figure>
 <img src="img/1.8.2.png" alt="" /><figcaption>du -sh /var</figcaption>
 </figure>
 <p><strong>Użyta komenda:</strong> du -sh /var</p>
-<h2 data-number="1.9" id="hostname"><span class="header-section-number">1.9</span> hostname</h2>
+<h2 data-number="2.9" id="hostname"><span class="header-section-number">2.9</span> hostname</h2>
 <figure>
 <img src="img/1.9.png" alt="" /><figcaption>hostname</figcaption>
 </figure>
 <p>Wyświetla nazwę hosta.</p>
-<h2 data-number="1.10" id="plik-etcpasswd"><span class="header-section-number">1.10</span> Plik /etc/passwd</h2>
+<h2 data-number="2.10" id="plik-etcpasswd"><span class="header-section-number">2.10</span> Plik /etc/passwd</h2>
 <p>Zawiera listę wszystkich użytkowników wraz z ich UID, GID, ścieżką do katalogu domowego i używaną powłoką.</p>
 <p><strong>Przykład:</strong></p>
 <figure>
@@ -219,17 +281,17 @@
 <p><strong><span style="color:var(--red-color)">1000 - UID</span></strong></p>
 <p><strong><span style="color:var(--green-color)">100 - GID</span></strong></p>
 <p>Jeżeli nie pamiętasz, które jest które użyj polecenia <a href="#id">id</a>.</p>
-<h2 data-number="1.11" id="id"><span class="header-section-number">1.11</span> id</h2>
+<h2 data-number="2.11" id="id"><span class="header-section-number">2.11</span> id</h2>
 <figure>
 <img src="img/1.11.png" alt="" /><figcaption>id admin</figcaption>
 </figure>
 <p>Wyświetla <strong>UID</strong> i <strong>GID</strong> określonego użytkownika.</p>
-<h2 data-number="1.12" id="lshw"><span class="header-section-number">1.12</span> lshw</h2>
+<h2 data-number="2.12" id="lshw"><span class="header-section-number">2.12</span> lshw</h2>
 <p>Wyświetla informacje na <strong>temat sprzętu komputera</strong>. Są to informacje dotyczące m.in.<strong> CPU</strong>, <strong> NIC</strong>, <strong> dyski</strong>, <strong> karty dźwiękowe</strong>, <strong> <span style="opacity:0">__</span>USB</strong>, itp.</p>
 <figure>
 <img src="img/lshw/1.png" alt="" /><figcaption>lshw -short</figcaption>
 </figure>
-<h2 data-number="1.13" id="podsumowanie"><span class="header-section-number">1.13</span> Podsumowanie</h2>
+<h2 data-number="2.13" id="podsumowanie"><span class="header-section-number">2.13</span> Podsumowanie</h2>
 <table>
 <thead>
 <tr class="header">
@@ -296,9 +358,9 @@
 </tr>
 </tbody>
 </table>
-<h1 data-number="2" id="konfiguracja-serwera-tekstowego-open-suse-42.3"><span class="header-section-number">2</span> Konfiguracja serwera tekstowego Open Suse 42.3</h1>
-<h2 data-number="2.1" id="konfiguracja-interfejsów"><span class="header-section-number">2.1</span> Konfiguracja interfejsów</h2>
-<h3 data-number="2.1.1" id="dodanie-bramy-domyślnej"><span class="header-section-number">2.1.1</span> Dodanie bramy domyślnej</h3>
+<h1 data-number="3" id="konfiguracja-serwera-tekstowego-open-suse-42.3"><span class="header-section-number">3</span> Konfiguracja serwera tekstowego Open Suse 42.3</h1>
+<h2 data-number="3.1" id="konfiguracja-interfejsów"><span class="header-section-number">3.1</span> Konfiguracja interfejsów</h2>
+<h3 data-number="3.1.1" id="dodanie-bramy-domyślnej"><span class="header-section-number">3.1.1</span> Dodanie bramy domyślnej</h3>
 <figure>
 <img src="img/Konfiguracja%20interfejsow/1.png" alt="" /><figcaption>W oknie Network Settings przechodzimy do zakładki Routing i w sekcji Routing Table dodajemy trase.</figcaption>
 </figure>
@@ -308,15 +370,15 @@
 <figure>
 <img src="img/Konfiguracja%20interfejsow/3.png" alt="" /><figcaption>Po dodaniu trasy widzimy ją w tabeli</figcaption>
 </figure>
-<h3 data-number="2.1.2" id="zmiana-nazwy-serwera"><span class="header-section-number">2.1.2</span> Zmiana nazwy serwera</h3>
+<h3 data-number="3.1.2" id="zmiana-nazwy-serwera"><span class="header-section-number">3.1.2</span> Zmiana nazwy serwera</h3>
 <figure>
 <img src="img/Konfiguracja%20interfejsow/4.png" alt="" /><figcaption>W oknie Network Settings przechodzimy do Hostname/DNS i wpisujemy statyczną nazwę hosta</figcaption>
 </figure>
-<h3 data-number="2.1.3" id="wyłączenie-interfejsu"><span class="header-section-number">2.1.3</span> Wyłączenie interfejsu</h3>
+<h3 data-number="3.1.3" id="wyłączenie-interfejsu"><span class="header-section-number">3.1.3</span> Wyłączenie interfejsu</h3>
 <figure>
 <img src="img/Konfiguracja%20interfejsow/5.png" alt="" /><figcaption>Przejdź do edycji ustawień interfejsu, następnie do zakładki <strong>General</strong> i w sekcji <strong>Device Activation</strong> zmień opcję <strong>Activate Device</strong> na <strong>Never</strong></figcaption>
 </figure>
-<h2 data-number="2.2" id="serwer-http"><span class="header-section-number">2.2</span> Serwer HTTP</h2>
+<h2 data-number="3.2" id="serwer-http"><span class="header-section-number">3.2</span> Serwer HTTP</h2>
 <ul>
 <li><strong> Nazwa usługi:</strong> apache2</li>
 <li><strong> Nazwa pakietu:</strong> yast2-http-server</li>
@@ -327,8 +389,8 @@
 <li><strong> Domyślna ścieżka strony</strong>: /srv/www</li>
 <li><strong> Link do dokumentacji: <a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html">kliknij tutaj</a></strong></li>
 </ul>
-<h2 data-number="2.3" id="serwer-ftp"><span class="header-section-number">2.3</span> Serwer FTP</h2>
-<h3 data-number="2.3.1" id="informacje-o-usłudze"><span class="header-section-number">2.3.1</span> Informacje o usłudze</h3>
+<h2 data-number="3.3" id="serwer-ftp"><span class="header-section-number">3.3</span> Serwer FTP</h2>
+<h3 data-number="3.3.1" id="informacje-o-usłudze"><span class="header-section-number">3.3.1</span> Informacje o usłudze</h3>
 <ul>
 <li><strong> Nazwa usługi:</strong> vsftpd</li>
 <li><strong> Nazwa pakietu:</strong> vsftpd lub yast2-ftp-server</li>
@@ -337,11 +399,11 @@
 <li><strong> Domyślna ścieżka do udostępnionych plików</strong>: /srv/ftp</li>
 <li><strong> Link do dokumentacji: <a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-ftp.html">kliknij tutaj</a></strong></li>
 </ul>
-<h3 data-number="2.3.2" id="przypomnienie"><span class="header-section-number">2.3.2</span> Przypomnienie</h3>
-<h4 data-number="2.3.2.1" id="uwierzytelnieni-i-anonimowi"><span class="header-section-number">2.3.2.1</span> Uwierzytelnieni i anonimowi</h4>
+<h3 data-number="3.3.2" id="przypomnienie"><span class="header-section-number">3.3.2</span> Przypomnienie</h3>
+<h4 data-number="3.3.2.1" id="uwierzytelnieni-i-anonimowi"><span class="header-section-number">3.3.2.1</span> Uwierzytelnieni i anonimowi</h4>
 <p><strong> Użytkownik anonimowy</strong> - każdy kto chce skorzystać z serwera nie mając przy tym swojego konta. Zazwyczaj można się połączyć anonimowo korzystając z login’u: <strong>anonymous</strong> lub wybierając odpowiednie ustawienie/przełącznik.</p>
 <p><strong> Użytkownik uwierzytelniony</strong> - posiada własne konto w naszym serwerze.</p>
-<h4 data-number="2.3.2.2" id="umask"><span class="header-section-number">2.3.2.2</span> Umask</h4>
+<h4 data-number="3.3.2.2" id="umask"><span class="header-section-number">3.3.2.2</span> Umask</h4>
 <p>Tworzymy przez <strong>negację właściwych uprawnień</strong>.</p>
 <p><strong>Składa się z 4 pól uprawnień:</strong></p>
 <ul>
@@ -357,19 +419,19 @@
 <li><strong>w</strong> - write - zapis - 2</li>
 <li><strong>x</strong> - execute - uruchomienie - 1</li>
 </ul>
-<h5 data-number="2.3.2.2.1" id="przykład-1."><span class="header-section-number">2.3.2.2.1</span> Przykład 1.</h5>
+<h5 data-number="3.3.2.2.1" id="przykład-1."><span class="header-section-number">3.3.2.2.1</span> Przykład 1.</h5>
 <p>Sam odczyt dla wszystkich, czyli <strong>read</strong> i <strong>execute</strong>.</p>
 <p>4 (read) + 1 (execute) = 5 7 - 5 = 2</p>
 <p><strong>Składamy w całość:</strong> 0222</p>
-<h5 data-number="2.3.2.2.2" id="przykład-2."><span class="header-section-number">2.3.2.2.2</span> Przykład 2.</h5>
+<h5 data-number="3.3.2.2.2" id="przykład-2."><span class="header-section-number">3.3.2.2.2</span> Przykład 2.</h5>
 <p>Odczyt, zapis i uruchomienie dla wszystkich, czyli <strong>read</strong>, <strong>write</strong> i <strong>execute</strong>.</p>
 <p>4 (read) + 2 (write) + 1 (execute) = 7 7 - 7 = 0</p>
 <p><strong>Składamy w całość:</strong> 0000</p>
-<h4 data-number="2.3.2.3" id="łączenie-się-testowanie-serwera-ftp"><span class="header-section-number">2.3.2.3</span> Łączenie się / testowanie serwera FTP</h4>
+<h4 data-number="3.3.2.3" id="łączenie-się-testowanie-serwera-ftp"><span class="header-section-number">3.3.2.3</span> Łączenie się / testowanie serwera FTP</h4>
 <p><strong>Program PuTTY</strong> - umożliwia połączenie się z innym hostem (za pomocą protokołów telnet, ssh, ftp itp.). W przypadku FTP będziemy korzystać z narzędzia <strong>psftp</strong> (które wchodzi w skład PuTTY). Aby pobrać <strong>PuTTY</strong> <a href="https://putty.org/">kliknij tutaj</a></p>
 <p><strong>Sposoby na połączenie się z serwerem FTP:</strong> - Przeglądarka Internet Explorer - Narzędzia ftp w wierszu poleceń - Eksplorator plików - Filezilla lub PuTTY</p>
 </article>
-<h3 data-number="2.3.3" id="konfiguracja-serwera"><span class="header-section-number">2.3.3</span> Konfiguracja serwera</h3>
+<h3 data-number="3.3.3" id="konfiguracja-serwera"><span class="header-section-number">3.3.3</span> Konfiguracja serwera</h3>
 <figure>
 <img src="img/FTP/1.png" alt="" /><figcaption>Przejdź do konfiguarcji serwera.</figcaption>
 </figure>
@@ -406,8 +468,8 @@
 <figure>
 <img src="img/FTP/9.png" alt="" /><figcaption>Pamiętaj, żeby sprawdzić też połączenie jako <a href="#uwierzytelnieni-i-anonimowi">użytkownik anonimowy</a></figcaption>
 </figure>
-<h2 data-number="2.4" id="serwer-dns"><span class="header-section-number">2.4</span> Serwer DNS</h2>
-<h3 data-number="2.4.1" id="informacje-o-usłudze-1"><span class="header-section-number">2.4.1</span> Informacje o usłudze</h3>
+<h2 data-number="3.4" id="serwer-dns"><span class="header-section-number">3.4</span> Serwer DNS</h2>
+<h3 data-number="3.4.1" id="informacje-o-usłudze-1"><span class="header-section-number">3.4.1</span> Informacje o usłudze</h3>
 <ul>
 <li><strong> Nazwa usługi:</strong> named</li>
 <li><strong> Nazwa pakietu:</strong> yast2-dns-server</li>
@@ -430,7 +492,7 @@
 <li><p>Do testowania użyj polecenia <strong>nslookup</strong> (na Linuxie i Windows’ie) lub <strong>dig</strong> (na Linux’ie).</p></li>
 </ul>
 </article>
-<h3 data-number="2.4.2" id="konfiguracja-serwera-1"><span class="header-section-number">2.4.2</span> Konfiguracja serwera</h3>
+<h3 data-number="3.4.2" id="konfiguracja-serwera-1"><span class="header-section-number">3.4.2</span> Konfiguracja serwera</h3>
 <figure>
 <img src="img/Serwer%20DNS/1.png" alt="" /><figcaption>Przejdź do konfiguracji serwera DNS</figcaption>
 </figure>
@@ -464,7 +526,7 @@
 <figure>
 <img src="img/Serwer%20DNS/11.png" alt="" /><figcaption>Dodajemy rekord NS, w strefie wyszukiwania w tył tak samo jak w strefie wyszukiwania w przód</figcaption>
 </figure>
-<h3 data-number="2.4.3" id="testowanie-serwera"><span class="header-section-number">2.4.3</span> Testowanie serwera</h3>
+<h3 data-number="3.4.3" id="testowanie-serwera"><span class="header-section-number">3.4.3</span> Testowanie serwera</h3>
 <figure>
 <img src="img/Serwer%20DNS/Testowanie/1.png" alt="" /><figcaption>Sprawdzam strefę wyszukiwania w przód na serwerze</figcaption>
 </figure>
@@ -477,7 +539,7 @@
 <figure>
 <img src="img/Serwer%20DNS/Testowanie/4.png" alt="" /><figcaption>I na koniec wyszukiwanie w tył</figcaption>
 </figure>
-<h2 data-number="2.5" id="serwer-dhcp"><span class="header-section-number">2.5</span> Serwer DHCP</h2>
+<h2 data-number="3.5" id="serwer-dhcp"><span class="header-section-number">3.5</span> Serwer DHCP</h2>
 <ul>
 <li><strong> Nazwa usługi:</strong> dhcpd</li>
 <li><strong> Nazwa pakietu:</strong> yast2-dhcp-server</li>
@@ -485,12 +547,12 @@
 <li><strong>ﴘ Domyślne numery portów</strong>: 67 (serwer) i 68 (klient) - UDP</li>
 <li><strong> Link do dokumentacji:</strong> <a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-dhcp.html">kliknij tutaj</a></li>
 </ul>
-<h1 data-number="3" id="ssh---secure-shell"><span class="header-section-number">3</span> SSH - Secure Shell</h1>
-<h2 data-number="3.1" id="informacje-o-usłudze-2"><span class="header-section-number">3.1</span> Informacje o usłudze</h2>
+<h1 data-number="4" id="ssh---secure-shell"><span class="header-section-number">4</span> SSH - Secure Shell</h1>
+<h2 data-number="4.1" id="informacje-o-usłudze-2"><span class="header-section-number">4.1</span> Informacje o usłudze</h2>
 <ul>
 <li><strong> Plik konfiguracyjny:</strong> /etc/ssh/sshd_config</li>
 </ul>
-<h2 data-number="3.2" id="manualne-włączanie"><span class="header-section-number">3.2</span> Manualne włączanie</h2>
+<h2 data-number="4.2" id="manualne-włączanie"><span class="header-section-number">4.2</span> Manualne włączanie</h2>
 <ol type="1">
 <li><strong>Zainstalowanie pakietu OpenSSH</strong></li>
 </ol>
@@ -517,11 +579,11 @@ sudo systemctl status sshd
 sudo firewall-cmd --permament --add-service=ssh
 sudo firewall-cmd --reload
 </pre>
-<h2 data-number="3.3" id="kopiowanie-plików"><span class="header-section-number">3.3</span> Kopiowanie plików</h2>
-<h3 data-number="3.3.1" id="polecenie-scp"><span class="header-section-number">3.3.1</span> Polecenie scp</h3>
+<h2 data-number="4.3" id="kopiowanie-plików"><span class="header-section-number">4.3</span> Kopiowanie plików</h2>
+<h3 data-number="4.3.1" id="polecenie-scp"><span class="header-section-number">4.3.1</span> Polecenie scp</h3>
 <p>Do kopiowania plików z serwera SSH i SFTP służy polecenie <strong>scp</strong>.</p>
 <p>Pamiętaj, że po połączeniu się z <strong>ssh lądujemy w katalogu użytkownika</strong> (np. /home/admin).</p>
-<h4 data-number="3.3.1.1" id="format-komendy"><span class="header-section-number">3.3.1.1</span> Format komendy</h4>
+<h4 data-number="4.3.1.1" id="format-komendy"><span class="header-section-number">4.3.1.1</span> Format komendy</h4>
 <p><strong>  <span style="opacity:0">_</span>Pobieranie z serwera:</strong></p>
 <pre><code>scp [-r] uzytkownik@adres_serwera:plik_zrodlowy plik_docelowy</code></pre>
 <p>Przykład: <a href="#przyklad-1.">kliknij tutaj</a></p>
@@ -535,24 +597,24 @@ sudo firewall-cmd --reload
 <p><strong>  <span style="opacity:0">_</span>Przykład 2.</strong></p>
 <pre><code>scp test admin@10.0.0.1:test2</code></pre>
 <p>Wysyłamy <strong>plik test</strong> z klienta do <strong>pliku test2</strong> na serwerze. <img src="img/SSH/3.png" alt="Klient" /> <img src="img/SSH/4.png" alt="Serwer" /></p>
-<h3 data-number="3.3.2" id="połączenie-przez-sftp"><span class="header-section-number">3.3.2</span> Połączenie przez sftp</h3>
+<h3 data-number="4.3.2" id="połączenie-przez-sftp"><span class="header-section-number">4.3.2</span> Połączenie przez sftp</h3>
 <p>Oprócz <a href="#polecenie-scp">scp</a> możemy połączyć się przez <strong>SFTP - Secure File Transfer Protocol (TCP 22)</strong>. Wtedy obowiązują nas komendy tj. w zwykłym ftp, czyli <strong>get</strong> (pobieranie z serwera) lub <strong>put</strong> (wysyłanie do serwera).</p>
 <figure>
 <img src="img/SSH/5.png" alt="" /><figcaption>Przykład</figcaption>
 </figure>
-<h2 data-number="3.4" id="źródła-i-ciekawe-artykuły"><span class="header-section-number">3.4</span> Źródła i ciekawe artykuły</h2>
+<h2 data-number="4.4" id="źródła-i-ciekawe-artykuły"><span class="header-section-number">4.4</span> Źródła i ciekawe artykuły</h2>
 <ul>
 <li><a href="https://kinsta.com/knowledgebase/ssh-vs-ssl/">SSH vs SSL</a></li>
 <li><a href="http://www.is.umk.pl/~grochu/unix/unix-2020/S10.html">Polecenia unix’a</a></li>
 </ul>
-<h1 data-number="4" id="egzamin-próbny"><span class="header-section-number">4</span> Egzamin próbny</h1>
+<h1 data-number="5" id="egzamin-próbny"><span class="header-section-number">5</span> Egzamin próbny</h1>
 <div class="warning">
 <h4>
 Uwaga!
 </h4>
 <p>Część zadań pominąłem, w tym montaż okablowania, konfiguracja drukarki i spisywanie wyników pamięci RAM.</p>
 </div>
-<h2 data-number="4.1" id="treść-zadania"><span class="header-section-number">4.1</span> Treść zadania</h2>
+<h2 data-number="5.1" id="treść-zadania"><span class="header-section-number">5.1</span> Treść zadania</h2>
 <ol type="1">
 <li><p>Wykonaj montaż okablowania sieciowego:</p>
 <ul>
@@ -698,7 +760,7 @@ Częstotliwość
 <li>skonfigurowany serwer sieci Web i połączenie z drukarką sieciową.</li>
 <li>przebieg wykonania kabla połączeniowego i połączenia urządzeń.</li>
 </ul>
-<h2 data-number="4.2" id="konfiguracja-routera"><span class="header-section-number">4.2</span> Konfiguracja router’a</h2>
+<h2 data-number="5.2" id="konfiguracja-routera"><span class="header-section-number">5.2</span> Konfiguracja router’a</h2>
 <p><strong>Model urządzenia:</strong> Cisco RW110W</p>
 <p><strong>Emulator:</strong> <a href="https://www.cisco.com/assets/sol/sb/RV110W_Emulators/RV110W_Emulator_v1.0.0.2/default.asp.htm">kliknij tutaj</a></p>
 <p>Aby dostać się do urządzenia podłączam go do stacji i <strong>konfiguruje automatyczne pobieranie adresu IP</strong> (domyślnie DHCP jest włączony na routerze). Następnie wchodzę do konfiguracji przy użyciu przeglądarki, adres IP to <strong>192.168.1.1</strong>.</p>
@@ -713,7 +775,7 @@ Częstotliwość
 <li>Teraz zostaje nam włączenie routowania między VLAN’ami, czyli <strong>Inter-VLAN routing</strong>. Rozwiązanie, które tutaj tworzymy to tzw. <strong>router na patyku</strong> (<a href="https://contenthub.netacad.com/legacy/RSE/5.02/pl/course/module5/5.1.1.3/5.1.1.3.html">więcej informacji znajdziesz tutaj</a>).<img src="img/Egzamin%20próbny/Zadanie%202/3.png" /></li>
 </ul></li>
 </ol>
-<h2 data-number="4.3" id="konfiguracja-przełącznika"><span class="header-section-number">4.3</span> Konfiguracja przełącznika</h2>
+<h2 data-number="5.3" id="konfiguracja-przełącznika"><span class="header-section-number">5.3</span> Konfiguracja przełącznika</h2>
 <p><strong>Model przełącznika:</strong> Cisco SG 200-8G</p>
 <p><strong>Emulator:</strong> <a href="https://www.cisco.com/assets/sol/sb/SG200_Emulators/SG200_Emulator_v1-2-9/config/home_SG_200-50P_1_2_9.htm">kliknij tutaj</a></p>
 <ol type="1">
@@ -732,8 +794,8 @@ Częstotliwość
 </ul></li>
 <li><p>W ustawieniach interfejsów (<strong>VLAN Management&gt;Interface settings</strong>) zmieniamy typy interfejsów g1 i g2 na access (tryb dostępu, jeden VLAN na jednym porcie) i g3 na trunk (wiele VLAN’ów na jednym porcie).<img src="img/Egzamin%20próbny/Zadanie%202/Zadanie%203/7.png" /></p></li>
 </ol>
-<h2 data-number="4.4" id="konfiguracja-komputerów"><span class="header-section-number">4.4</span> Konfiguracja komputerów</h2>
-<h3 data-number="4.4.1" id="konfiguracja-serwera-2"><span class="header-section-number">4.4.1</span> Konfiguracja serwera</h3>
+<h2 data-number="5.4" id="konfiguracja-komputerów"><span class="header-section-number">5.4</span> Konfiguracja komputerów</h2>
+<h3 data-number="5.4.1" id="konfiguracja-serwera-2"><span class="header-section-number">5.4.1</span> Konfiguracja serwera</h3>
 <ul>
 <li><p>Zaczynam od konfiguracji serwera, otwieram <strong>Yast’a</strong> i przechodzę do <strong>System</strong> i <strong>Network Settings</strong>.</p>
 <p><img src="img/Egzamin%20próbny/Zadanie%205/8.png" /></p></li>
@@ -748,12 +810,12 @@ Częstotliwość
 <li><p>W zakładce <strong>Routing</strong> dodaje nową <strong>trasę domyślną</strong>, czyli adres bramy domyślnej (routera) - <strong>192.168.0.1</strong>, podaje też nazwę interfejsu - <strong>VLAN1</strong>.</p>
 <p><img src="img/Egzamin%20próbny/Zadanie%205/13.png" /></p></li>
 </ul>
-<h3 data-number="4.4.2" id="konfiguracja-klienta"><span class="header-section-number">4.4.2</span> Konfiguracja klienta</h3>
+<h3 data-number="5.4.2" id="konfiguracja-klienta"><span class="header-section-number">5.4.2</span> Konfiguracja klienta</h3>
 <ul>
 <li>Zmieniam ustawienia karty sieciowej na automatyczne pobieranie adresu IP i adresu serwera DNS.</li>
 </ul>
 <p><img src="img/Egzamin%20próbny/Zadanie%205/1.png" /></p>
-<h2 data-number="4.5" id="testowanie-połączeń"><span class="header-section-number">4.5</span> Testowanie połączeń</h2>
+<h2 data-number="5.5" id="testowanie-połączeń"><span class="header-section-number">5.5</span> Testowanie połączeń</h2>
 <ul>
 <li><p>Serwer -&gt; Router (VLAN 1)</p>
 <p><img src="img/Egzamin%20pr%C3%B3bny/Zadanie%205/21.png" /></p></li>
@@ -768,7 +830,7 @@ Częstotliwość
 <li><p>Klient -&gt; Serwer</p>
 <p><img src="img/Egzamin%20pr%C3%B3bny/Zadanie%205/Pasted%20image%2020230525124018.png" /></p></li>
 </ul>
-<h2 data-number="4.6" id="konfiguracja-serwera-http"><span class="header-section-number">4.6</span> Konfiguracja serwera HTTP</h2>
+<h2 data-number="5.6" id="konfiguracja-serwera-http"><span class="header-section-number">5.6</span> Konfiguracja serwera HTTP</h2>
 <p>Jeżeli ćwiczysz instalacje <strong>serwera HTTP</strong> w wirtualnej maszynie, to może się zdarzyć, że pomimo wybrania usługi HTTP podczas instalacji usługa <strong>Apache2</strong> jest niezainstalowana. W takim przypadku wystarczy ją zainstalować poleceniem:</p>
 <pre><code>    sudo zypper install yast2-http-server</code></pre>
 <ol type="1">
