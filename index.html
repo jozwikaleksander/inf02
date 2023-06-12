@@ -124,6 +124,7 @@
 </ul></li>
 <li><a href="#testowanie-połączeń"><span class="toc-section-number">5.5</span> Testowanie połączeń</a></li>
 <li><a href="#konfiguracja-serwera-http"><span class="toc-section-number">5.6</span> Konfiguracja serwera HTTP</a></li>
+<li><a href="#montowanie-nośnika-danych"><span class="toc-section-number">5.7</span> Montowanie nośnika danych</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -133,7 +134,7 @@
 <p>Aby udostępnić zasób w wierszu poleceń służy polecenie <em>net share</em>. Dokładny opis komendy <a href="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh750728(v=ws.11)">znajdziesz tutaj</a>.</p>
 <p><strong>Podstawowa struktura polecenia:</strong></p>
 <pre><code>net share nazwa_zasobu=dysk:ścieżka</code></pre>
-<p><strong>Dla przypomnienia</strong> format w jakim możemy odnieść się do jakieś zasobu to tzw. <strong>ścieżka UNC</strong>, czyli *\nazwa_komputera_zasobu*. Więcej o tym <a href="https://www.lifewire.com/unc-universal-naming-convention-818230">tutaj</a>.</p>
+<p><strong>Dla przypomnienia</strong> format w jakim możemy odnieść się do jakieś zasobu to tzw. <strong>ścieżka UNC</strong>, czyli <em>\\nazwa_komputera\nazwa_zasobu</em>. Więcej o tym <a href="https://www.lifewire.com/unc-universal-naming-convention-818230">tutaj</a>.</p>
 <h3 data-number="1.1.1" id="podstawowe-udostępnianie"><span class="header-section-number">1.1.1</span> Podstawowe udostępnianie</h3>
 <p><img src="img/Windows/Sharing/1.png" /></p>
 <p>Aby teraz wyświetlić listę zasobów korzystamy z <em>net share</em>.</p>
@@ -144,7 +145,11 @@
 <h3 data-number="1.1.3" id="określanie-uprawnień-przy-udostępnianiu-zasobu"><span class="header-section-number">1.1.3</span> Określanie uprawnień przy udostępnianiu zasobu</h3>
 <p><img src="img/Windows/Sharing/3.png" /></p>
 <p>Aby udostępnić zasób jakiemuś użytkownikami korzystamy z przełącznika <strong>/grant:nazwa_użytkownika, READ|WRITE|FULL</strong>.</p>
-<p><strong>READ</strong> - odczyt <strong>WRITE</strong> - zapis <strong>FULL</strong> - pełna kontrola</p>
+<ul>
+<li><strong>READ</strong> - odczyt</li>
+<li><strong>WRITE</strong> - zapis</li>
+<li><strong>FULL</strong> - pełna kontrola</li>
+</ul>
 <h3 data-number="1.1.4" id="usuwanie-zasobów"><span class="header-section-number">1.1.4</span> Usuwanie zasobów</h3>
 <p><img src="img/Windows/Sharing/4.png" /></p>
 <p>Aby usunąć zasób korzystamy z przełącznika <strong>/DELETE</strong>.</p>
@@ -842,6 +847,24 @@ Częstotliwość
 <li>Za pomocą dowolnego edytora tekstu <strong>zmieniam zawartość pliku</strong>, ja wybrałem <strong>vim</strong> (możesz użyć nano lub mc jeżeli są zainstalowane).<img src="img/Egzamin%20próbny/Zadanie%206/19.png" /></li>
 <li>Pozostało nam sprawdzenie działania serwera HTTP na kliencie.</li>
 </ol>
+<h2 data-number="5.7" id="montowanie-nośnika-danych"><span class="header-section-number">5.7</span> Montowanie nośnika danych</h2>
+<p>Najpierw korzystamy z komendy <strong>fdisk -l</strong>, aby wyświetlić dostępne dyski i sprawdzić nazwę wybranej partycji.</p>
+<figure>
+<img src="img/Mounting/1.png" alt="" /><figcaption>sudo fdisk -l</figcaption>
+</figure>
+<p>W tym przypadku partycja na nośniku zewnętrznym to <strong>/dev/sdd1</strong>.</p>
+<figure>
+<img src="img/Mounting/2.png" alt="" /><figcaption>sudo mkdir /media/usb</figcaption>
+</figure>
+<p>Następnie tworzę katalog dla nośnika w folderze <strong>media</strong>.</p>
+<figure>
+<img src="img/Mounting/3.png" alt="" /><figcaption>sudo mount /dev/sdd1 /media/usb</figcaption>
+</figure>
+<p>Montuje nośnik korzystając z polecenia <strong>mount</strong>, podaje urządzenie i punkt w którym chce je zamontować.</p>
+<figure>
+<img src="img/Mounting/4.png" alt="" /><figcaption>ls -la /media/usb</figcaption>
+</figure>
+Teraz wystarczy sprawdzić czy się udało.
 </main>
 </body>
 </html>

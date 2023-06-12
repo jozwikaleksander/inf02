@@ -14,7 +14,7 @@ Aby udostępnić zasób w wierszu poleceń służy polecenie *net share*. Dokła
 
     net share nazwa_zasobu=dysk:ścieżka
 
-**Dla przypomnienia** format w jakim możemy odnieść się do jakieś zasobu to tzw. **ścieżka UNC**, czyli *\\nazwa_komputera\nazwa_zasobu*. Więcej o tym [tutaj](https://www.lifewire.com/unc-universal-naming-convention-818230).
+**Dla przypomnienia** format w jakim możemy odnieść się do jakieś zasobu to tzw. **ścieżka UNC**, czyli *\\\\nazwa_komputera\\nazwa_zasobu*. Więcej o tym [tutaj](https://www.lifewire.com/unc-universal-naming-convention-818230).
 
 ### Podstawowe udostępnianie
 ![](img/Windows/Sharing/1.png)
@@ -36,9 +36,9 @@ Do tego również służy komenda **net share *nazwa_zasobu***.
 
 Aby udostępnić zasób jakiemuś użytkownikami korzystamy z przełącznika **/grant:nazwa_użytkownika, READ|WRITE|FULL**.
 
-**READ** - odczyt
-**WRITE** - zapis
-**FULL** - pełna kontrola
+- **READ** - odczyt
+- **WRITE** - zapis
+- **FULL** - pełna kontrola
 
 ### Usuwanie zasobów
 
@@ -744,4 +744,24 @@ Jeżeli ćwiczysz instalacje **serwera HTTP** w wirtualnej maszynie, to może si
 5. Tworzę **katalog /stronawww**, a wewnątrz **plik index.html**.
 6. Za pomocą dowolnego edytora tekstu **zmieniam zawartość pliku**, ja wybrałem **vim** (możesz użyć nano lub mc jeżeli są zainstalowane).![](img/Egzamin%20próbny/Zadanie%206/19.png)
 7. Pozostało nam sprawdzenie działania serwera HTTP na kliencie.
+
+## Montowanie nośnika danych
+
+Najpierw korzystamy z komendy **fdisk -l**, aby wyświetlić dostępne dyski i sprawdzić nazwę wybranej partycji.
+
+![sudo fdisk -l](img/Mounting/1.png)
+
+W tym przypadku partycja na nośniku zewnętrznym to **/dev/sdd1**.
+
+![sudo mkdir /media/usb](img/Mounting/2.png)
+
+Następnie tworzę katalog dla nośnika w folderze **media**.
+
+![sudo mount /dev/sdd1 /media/usb](img/Mounting/3.png)
+
+Montuje nośnik korzystając z polecenia **mount**, podaje urządzenie i punkt w którym chce je zamontować.
+
+![ls -la /media/usb](img/Mounting/4.png)
+
+Teraz wystarczy sprawdzić czy się udało.
 </main>
